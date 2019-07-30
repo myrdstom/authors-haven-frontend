@@ -5,64 +5,57 @@
     box-sizing: border-box;
 }
 
-.navbar-brand .header{
-  color: #212529;
+.navbar-brand .header {
+    color: #212529;
 }
 
-
-.nav-item{
-  margin-right:30px;
+.nav-item {
+    margin-right: 30px;
 }
 
-.small-font{
-  font-size: 12px;
+.small-font {
+    font-size: 12px;
 }
-.btn{
-  margin-right: 20px;
+.btn {
+    margin-right: 20px;
 }
 
-.collapse .navbar-collapse .navbar-nav .mr-auto{
-  max-width: 10px;
+.collapse .navbar-collapse .navbar-nav .mr-auto {
+    max-width: 10px;
 }
 
 /* search button*/
 
-.active-cyan-2 input[type=text]:focus:not([readonly]) {
-  border-bottom: 1px solid #4dd0e1;
-  box-shadow: 0 1px 0 0 #4dd0e1;
+.active-cyan-2 input[type='text']:focus:not([readonly]) {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
 }
-.form-control .mr-sm-2 .small-font{
-  font-size: 12px;
-  color: yellow;
+.form-control .mr-sm-2 .small-font {
+    font-size: 12px;
+    color: yellow;
 }
 .navbar--center {
-
-
 }
 
-.navbar--right{
-  display: flex;
-  justify-content: flex-end;
-
+.navbar--right {
+    display: flex;
+    justify-content: flex-end;
 }
 
 /*Login and register*/
 
-.auth-login{
-  color: black;
-  text-decoration: none;
+.auth-login {
+    color: black;
+    text-decoration: none;
 }
-.auth-login:hover{
-  text-decoration: none;
-}
-
-
-.auth-register{
-  text-decoration: none;
-}
-.auth-register:hover{
-  color: white;
-  text-decoration: none;
+.auth-login:hover {
+    text-decoration: none;
 }
 
-
+.auth-register {
+    text-decoration: none;
+}
+.auth-register:hover {
+    color: white;
+    text-decoration: none;
+}
