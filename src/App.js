@@ -5,7 +5,7 @@ import store from './redux/store/combineStore'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import GetAllArticlesView from './components/articles/getAllArticles/container/GetAllArticlesView';
+import DashboardView from './components/articles/dashboard/container/DashboardView';
 import LoginView from './components/auth/container/LoginView';
 import RegistrationView from './components/auth/container/RegistrationView';
 
@@ -18,7 +18,7 @@ function App() {
             <Router>
                 <Header />
                 <Switch>
-                    <Route exact path="/" component={GetAllArticlesView} />
+                    <Route exact path="/" component={DashboardView} />
                     <Route exact path="/login" component={LoginView} />
                     <Route
                         exact
