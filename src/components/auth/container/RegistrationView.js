@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Registration from '../component/Registration';
 import { connect } from 'react-redux';
-import { registerUser } from '../../../redux/actions/auth';
+import { registerUser } from '../../../redux/actions/auth/auth';
 
 export class RegistrationView extends Component {
     constructor() {
@@ -15,10 +16,15 @@ export class RegistrationView extends Component {
             errors: {},
         };
     }
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push('/')
+        }
+    }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.errors){
-            this.setState({errors: nextProps.errors})
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
         }
     }
 
@@ -33,7 +39,7 @@ export class RegistrationView extends Component {
             password: this.state.password,
             confirmPassword: this.state.confirmPassword,
         };
-        this.props.registerUser(newUser);
+        this.props.registerUser(newUser, this.props.history);
     };
     render() {
         const {
@@ -64,15 +70,15 @@ export class RegistrationView extends Component {
 RegistrationView.propTypes = {
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    errors: state.errors
+    errors: state.errors,
 });
 
 export default connect(
     mapStateToProps,
     { registerUser }
-)(RegistrationView);
+)(withRouter(RegistrationView));
