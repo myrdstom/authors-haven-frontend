@@ -2,7 +2,6 @@ import React from 'react';
 import login from '../../../images/auth/login.png';
 
 export default function Login(props) {
-    console.log(props.errors.email, 'the errors');
     return (
         <div>
             <div>
@@ -28,6 +27,7 @@ export default function Login(props) {
                                             placeholder="Enter email"
                                             value={props.email}
                                             onChange={props.onChange}
+                                            id="email"
                                             required
                                         />
                                         {props.errors.email && (
