@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Login from '../component/Login';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUser } from '../../../redux/actions/auth/auth';
 
@@ -65,12 +66,15 @@ LoginView.propTypes = {
     errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors,
+    history: PropTypes.shape({
+        push: PropTypes.func,
+    }).isRequired,
 });
 
 export default connect(
     mapStateToProps,
     { loginUser }
-)(LoginView);
+)(withRouter(LoginView));

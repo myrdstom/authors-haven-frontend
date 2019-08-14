@@ -1,7 +1,6 @@
-import mockAxios from 'axios';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { toast } from 'react-toastify';
+import moxios from 'moxios';
 import { GET_ERRORS, SET_CURRENT_USER } from '../../../../redux/actions/types';
 import {
     registerUser,
@@ -9,9 +8,7 @@ import {
     setCurrentUser,
 } from '../../../../redux/actions/auth/auth';
 import users from '../../../__mocks__/users';
-import { signUp } from '../../../__mocks__/errors';
 
-jest.mock('axios');
 const mockStore = configureMockStore([thunk]);
 const userData = {
     username: users.username,
@@ -23,64 +20,29 @@ const userData = {
 const loginUserData = {
     email: users.email,
     password: users.password,
-}
-// describe('Test suite for register action', () => {
-//     it('Should fail to register a user', () => {
-//         const notifyMock = jest.fn();
-//         toast.success = notifyMock;
-//         const error = { error: 'User already exists' };
-//         mockAxios.post.mockImplementationOnce(() => Promise.reject(error));
-//         const responseData = {
-//             type: GET_ERRORS,
-//             payload: { error: 'User already exists' },
-//         };
-//         const store = mockStore({});
-//         store.dispatch(registerUser(userData));
-//         expect(mockAxios.post).toHaveBeenCalledTimes(1);
-//         // expect(store.getActions()).toEqual(responseData);
-//         // expect(notifyMock).toHaveBeenCalledTimes(1);
-//     });
-//     it('Should register a user', () => {
-//         const notifyMock = jest.fn();
-//         toast.success = notifyMock;
-//         const message = { message: 'Go to your email to verify ' };
-//         mockAxios.post.mockImplementationOnce(() => Promise.resolve(message));
-//         const responseData = {
-//             message: 'Congratulation!! You have been registered!',
-//         };
-//         const store = mockStore({});
-//         store.dispatch(registerUser(userData));
-//         expect(mockAxios.post).toHaveBeenCalledTimes(2);
-//         // expect(notifyMock).toHaveBeenCalledTimes(1);
-//         // expect(store.getActions()).toEqual(responseData);
-//     });
-// });
+};
+describe('Test suite for register action', () => {
+    beforeEach(() => {
+        moxios.install();
+    });
 
-// describe('Test suite for login action', () => {
-//     it('Should fail to login a user', () => {
-//         const error = { error: 'User does not exist' };
-//         mockAxios.post.mockImplementationOnce(() => Promise.reject(error));
-//         const responseData = {
-//             type: GET_ERRORS,
-//             payload: { error: 'User does notexist' },
-//         };
-//         const store = mockStore({});
-//         store.dispatch(loginUser(loginUserData));
-//         expect(mockAxios.post).toHaveBeenCalledTimes(3);
-//     });
-//     it('Should login a user', () => {
-//         const notifyMock = jest.fn();
-//         toast.success = notifyMock;
-//         const message = { message: 'Congratulation!! You have logged In! ' };
-//         mockAxios.post.mockImplementationOnce(() => Promise.resolve(message));
-//         const responseData = {
-//             message: 'Congratulation!! You have logged In!',
-//         };
-//         const store = mockStore({});
-//         store.dispatch(registerUser(loginUserData));
-//         expect(mockAxios.post).toHaveBeenCalledTimes(4);
-//     });
-// });
+    afterEach(() => {
+        moxios.uninstall();
+    });
+    it('Should fail to register a user', done => {
+        moxios.wait(() => {
+            const request = moxios.requests.mostRecent();
+            request.respondWith({
+                status: 400,
+                response: { error: 'User already exists' },
+            }).then(() => {
+                done();
+            });
+        });
+        const store = mockStore({});
+        store.dispatch(registerUser(userData));
+    });
+});
 
 describe('Set LoggedIn User', () => {
     const response = { isAuthenticated: false };

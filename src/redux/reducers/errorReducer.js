@@ -3,7 +3,7 @@ import { GET_ERRORS } from '../actions/types';
 
 const initialState = {};
 
-const authReducer = (state = initialState, action) => {
+const errorReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ERRORS:
             return action.payload;
@@ -12,4 +12,4 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-export default authReducer;
+export default errorReducer;
