@@ -17,6 +17,12 @@ const userData = {
     confirmPassword: users.confirmPassword,
 };
 
+const userRegister = {
+    username: 'bgpeter',
+    email: 'bgpeter@gmail.com',
+    password: 'P@ssw0rd',
+    confirmPassword: 'P@ssw0rd',
+};
 const loginUserData = {
     email: users.email,
     password: users.password,
@@ -29,6 +35,20 @@ describe('Test suite for register action', () => {
     afterEach(() => {
         moxios.uninstall();
     });
+    it('Should successfully register a user', done => {
+        moxios.wait(() => {
+            const request = moxios.requests.mostRecent();
+            request.respondWith({
+                status: 201,
+                response:{}
+            }).then(() => {
+                done();
+            });
+        });
+
+        const store = mockStore({});
+        store.dispatch(registerUser(userRegister));
+    });
     it('Should fail to register a user', done => {
         moxios.wait(() => {
             const request = moxios.requests.mostRecent();
@@ -36,11 +56,13 @@ describe('Test suite for register action', () => {
                 status: 400,
                 response: { error: 'User already exists' },
             }).then(() => {
+
                 done();
             });
         });
         const store = mockStore({});
         store.dispatch(registerUser(userData));
+
     });
 });
 
