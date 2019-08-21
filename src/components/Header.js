@@ -64,7 +64,7 @@ export class Header extends Component {
                                     className="btn btn-basic my-2 my-sm-0"
                                     type="submit"
                                 >
-                                    <Link to="/login" className="auth-login">
+                                    <Link to="/login" className="authentication__login--link">
                                         {' '}
                                         <span className="small-font">
                                             LOGIN
@@ -77,7 +77,7 @@ export class Header extends Component {
                                 >
                                     <Link
                                         to="/register"
-                                        className="auth-register"
+                                        className="authentication__register--link"
                                     >
                                         <span className="small-font">
                                             GET STARTED

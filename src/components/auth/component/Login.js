@@ -5,18 +5,22 @@ export default function Login(props) {
     return (
         <div>
             <div>
-                <div className="parent-auth-container container-fluid">
+                <div className="parent__authentication__container container-fluid">
                     <div className="row">
                         <div className="col-7">
-                            <div className="img-container">
-                                <img className="auth-img" src={login} alt="" />
+                            <div className="image__container">
+                                <img
+                                    className="authentication__image"
+                                    src={login}
+                                    alt=""
+                                />
                             </div>
                         </div>
-                        <div className="col-5 auth-aside">
-                            <div className="auth-container">
+                        <div className="col-5 authentication__aside">
+                            <div className="authentication__container">
                                 <h1>Welcome back</h1>
                                 <form noValidate onSubmit={props.onSubmit}>
-                                    <div className="form-group registration-form">
+                                    <div className="form-group">
                                         <label htmlFor="email">
                                             Email address
                                         </label>
@@ -49,11 +53,13 @@ export default function Login(props) {
                                             onChange={props.onChange}
                                             required
                                         />
-                                        {props.errors.password && (
-                                            <div className="error-message">
-                                                {props.errors.password}
-                                            </div>
-                                        )}
+                                        {!props.errors.email
+                                            ? props.errors.password && (
+                                                  <div className="error-message">
+                                                      {props.errors.password}
+                                                  </div>
+                                              )
+                                            : ''}
                                     </div>
                                     <input
                                         type="submit"

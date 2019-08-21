@@ -1,23 +1,24 @@
 
-.auth-container{
+.authentication__container{
   color:#ffffff;
   padding: 40% 20%;
 
 }
 
-.reg-container{
-  color:#ffffff;
-  padding: 30% 20%;
-}
+
+.registration__container{
+   color:#ffffff;
+   padding: 20% 20%;
+ }
 
 
-.auth-aside{
+.authentication__aside{
   border-top-left-radius: 60%;
   border-bottom-left-radius: 60%;
-  background: #4c59ed;
+  background: $blue;
 }
 
-.auth-img{
+.authentication__image{
   margin-left: 25%;
   margin-top: 20%;
   max-width: 70%;
@@ -25,10 +26,10 @@
   height: auto;
 }
 
-.sign-in{
+.sign__in{
   color: white;
 }
 
-.sign-in:hover{
+.sign__in:hover{
   color: white;
 }
