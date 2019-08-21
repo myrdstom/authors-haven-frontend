@@ -34,28 +34,27 @@
     font-size: 12px;
     color: yellow;
 }
-.navbar--center {
-}
+
 
 .navbar--right {
     display: flex;
     justify-content: flex-end;
 }
 
-/*Login and register*/
+/*Login and register links*/
 
-.auth-login {
+.authentication__login--link {
     color: black;
     text-decoration: none;
 }
-.auth-login:hover {
+.authentication__login--link:hover {
     text-decoration: none;
 }
 
-.auth-register {
+.authentication__register--link {
     text-decoration: none;
 }
-.auth-register:hover {
+.authentication__register--link:hover {
     color: white;
     text-decoration: none;
 }
