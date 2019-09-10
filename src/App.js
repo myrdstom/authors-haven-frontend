@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import GetAllArticlesView from './components/articles/getAllArticles/container/GetAllArticlesView';
 import LoginView from './components/auth/container/LoginView';
 import RegistrationView from './components/auth/container/RegistrationView';
+import GetProfileView from './components/profiles/container/GetProfileView'
 import NotFoundPage from './components/NotFoundPage';
 
 // Check for token on every page
@@ -32,6 +33,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={GetAllArticlesView} />
                     <Route exact path="/login" component={LoginView} />
+                    <Route exact path="/getProfile" component={GetProfileView} />
                     <Route
                         exact
                         path="/register"

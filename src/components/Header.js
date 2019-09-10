@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../redux/actions/auth/auth';
+import { clearProfile } from '../redux/actions/profileActions';
 
 export class Header extends Component {
     onLogoutClick = e => {
         e.preventDefault();
-        this.props.logoutUser();
+        const { clearProfile, logoutUser } = this.props;
+        clearProfile();
+        logoutUser();
     };
     render() {
         const { isAuthenticated } = this.props.auth;
@@ -35,7 +38,10 @@ export class Header extends Component {
                                     className="btn btn-basic my-2 my-sm-0"
                                     type="submit"
                                 >
-                                    <Link to="/login" className="auth-login">
+                                    <Link
+                                        to="/getProfile"
+                                        className="auth-login"
+                                    >
                                         {' '}
                                         <span className="small-font">
                                             PROFILE
@@ -64,7 +70,10 @@ export class Header extends Component {
                                     className="btn btn-basic my-2 my-sm-0"
                                     type="submit"
                                 >
-                                    <Link to="/login" className="authentication__login--link">
+                                    <Link
+                                        to="/login"
+                                        className="authentication__login--link"
+                                    >
                                         {' '}
                                         <span className="small-font">
                                             LOGIN
@@ -98,11 +107,16 @@ Header.propTypes = {
     auth: PropTypes.object.isRequired,
 };
 
+export const mapDispatchToProps = dispatch => ({
+    logoutUser: () => dispatch(logoutUser()),
+    clearProfile: () => dispatch(clearProfile()),
+});
+
 const mapStateToProps = state => ({
     auth: state.auth,
 });
 
 export default connect(
     mapStateToProps,
-    { logoutUser }
+    mapDispatchToProps
 )(Header);
