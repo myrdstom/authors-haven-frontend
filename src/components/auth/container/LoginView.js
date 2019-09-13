@@ -16,17 +16,20 @@ export class LoginView extends Component {
     }
 
     componentDidMount() {
-        if(this.props.auth.isAuthenticated){
-            this.props.history.push('/')
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push('/');
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.auth.isAuthenticated){
+        if (nextProps.auth.isAuthenticated) {
             this.props.history.push('/');
         }
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors });
+            setTimeout(() => {
+                this.setState({errors: 'false'});
+            }, 5000)
         }
     }
 
@@ -39,12 +42,12 @@ export class LoginView extends Component {
             email: this.state.email,
             password: this.state.password,
         };
-        this.props.loginUser(userData);
+        const { loginUser } = this.props;
+        loginUser(userData);
     };
 
     render() {
         const { email, password, errors } = this.state;
-
 
         const { user } = this.props.auth;
         return (
@@ -60,6 +63,9 @@ export class LoginView extends Component {
     }
 }
 
+export const mapDispatchToProps = dispatch => ({
+    loginUser: userData => dispatch(loginUser(userData)),
+});
 LoginView.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
@@ -76,5 +82,5 @@ export const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { loginUser }
+    mapDispatchToProps
 )(withRouter(LoginView));

@@ -17,14 +17,17 @@ export class RegistrationView extends Component {
         };
     }
     componentDidMount() {
-        if(this.props.auth.isAuthenticated){
-            this.props.history.push('/')
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push('/');
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors });
+            setTimeout(() => {
+                this.setState({errors: 'false'});
+            }, 5000)
         }
     }
 
@@ -33,13 +36,16 @@ export class RegistrationView extends Component {
     };
     handleSubmit = e => {
         e.preventDefault();
+        const { username, email, password, confirmPassword } = this.state;
         const newUser = {
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password,
-            confirmPassword: this.state.confirmPassword,
+            username: username,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword,
         };
-        this.props.registerUser(newUser, this.props.history);
+        const { history } = this.props;
+
+        this.props.registerUser(newUser, history);
     };
     render() {
         const {
@@ -67,6 +73,11 @@ export class RegistrationView extends Component {
     }
 }
 
+export const mapDispatchToProps = dispatch => ({
+    registerUser: (newUser, history) =>
+        dispatch(registerUser(newUser, history)),
+});
+
 RegistrationView.propTypes = {
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
@@ -80,5 +91,5 @@ export const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { registerUser }
+    mapDispatchToProps
 )(withRouter(RegistrationView));
