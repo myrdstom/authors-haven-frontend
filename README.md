@@ -12,3 +12,10 @@
 
 - Test the functionality out in the browser that you have been redirected to.
 
+## Creating and serving an optimized build
+
+Run `yarn build` to create a minified version of the application
+
+Run `yarn global add serve` then `serve -s build` to serve a it with a static server
+
+Find out more about deploying the minified version here ` https://bit.ly/CRA-deploy`
