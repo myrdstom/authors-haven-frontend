@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import  GetArticlesWrapper  from '../components/getArticlesWrapper';
 
 export default class GetAllArticlesView extends Component {
 
     render() {
-        return (
-            <div>
-                Get All Articles
-            </div>
-        )
+    return (
+        <div>
+        <GetArticlesWrapper />
+        </div>
+        );
+
     }
 }
 

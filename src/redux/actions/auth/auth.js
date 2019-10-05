@@ -8,7 +8,7 @@ import { GET_ERRORS, SET_CURRENT_USER } from '../types';
 // Register the User
 export const registerUser = (userData, history) => dispatch => {
     axios
-        .post('api/users/register', userData)
+        .post('api/register', userData)
         .then(res => {
             history.push('/login');
             toast.success('Congratulation!! You have been registered!');
@@ -24,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 //Login User
 export const loginUser = userData => dispatch => {
     axios
-        .post('api/users/login', userData)
+        .post('api/login', userData)
         .then(res => {
             toast.success('Congratulation!! You have logged In!');
             const { token } = res.data;
