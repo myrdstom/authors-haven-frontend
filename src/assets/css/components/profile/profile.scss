@@ -1,0 +1,55 @@
+.get__profile-container {
+  padding-top: 5%;
+  margin: 0 auto;
+
+}
+
+.create__profile-container{
+  padding-top: 5%;
+}
+
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  float: left;
+}
+
+.avatar-upload .avatar-preview {
+  width: 152px;
+  height: 152px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  background-image: url("/src/assets/images/avatar.png");
+}
+
+.profile__avatar {
+  width: 148px;
+  height: 142px;
+  border-radius: 100%;
+}
+
+.profile__details {
+  margin-left: 10%;
+  padding-left: 10%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.profile__element{
+  padding-right: 20%;
+  font-size: $small-font-size;
+  word-wrap: break-word;
+}
+
+.edit_button{
+  color: $dark-grey;
+}
+
+.update__profile{
+  color: $blue;
+  font-weight: bold;
+}

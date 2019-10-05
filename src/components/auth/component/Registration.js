@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import registration from '../../../images/auth/registration.png';
+import registration from '../../../assets/images/auth/registration.png';
 
 export default function Registration(props) {
     return (

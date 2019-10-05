@@ -1,5 +1,5 @@
 import React from 'react';
-import login from '../../../images/auth/login.png';
+import login from '../../../assets/images/auth/login.png';
 
 export default function Login(props) {
     return (

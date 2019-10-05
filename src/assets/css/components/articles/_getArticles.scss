@@ -1,0 +1,59 @@
+.articles__container{
+  max-width: 99%;
+}
+
+.wrapper__text{
+  padding-left: 30%;
+}
+
+.articles__wrapper{
+  margin-top: 20px;
+  padding-left: 5%;
+  margin-right: 15%;
+  padding-right: 10%;
+  max-width: 80%;
+
+}
+
+.wrapper__text-container{
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+h1{
+  font-size: $large-font-size;
+}
+
+h2{
+  font-size: $medium-font-size;
+}
+h3{
+  font-size: $small-font-size;
+}
+
+.aside__login-button{
+  position: absolute;
+  margin-top: 5%;
+  z-index: 1;
+}
+
+.labels__row {
+  padding-top: 5%;
+  background-color: $light-blue;
+  padding-right: 5%;
+  padding-left: 5%;
+  width: 100%;
+}
+
+.row.col-7{
+  max-height: 280px;
+
+}
+
+.row.col-5{
+  max-height: 280px;
+}
+
+.selected__tag{
+  padding-top: 20px;
+}

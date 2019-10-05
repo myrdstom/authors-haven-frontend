@@ -67,7 +67,6 @@ export const mapDispatchToProps = dispatch => ({
     loginUser: userData => dispatch(loginUser(userData)),
 });
 LoginView.propTypes = {
-    loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
 };
