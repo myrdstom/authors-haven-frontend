@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../redux/actions/auth/auth';
+import { clearCurrentProfile } from '../redux/actions/profile/profileActions';
 
 export class Header extends Component {
     onLogoutClick = e => {
         e.preventDefault();
+        this.props.clearCurrentProfile();
         this.props.logoutUser();
     };
     render() {
@@ -35,7 +37,7 @@ export class Header extends Component {
                                     className="btn btn-basic my-2 my-sm-0"
                                     type="submit"
                                 >
-                                    <Link to="/login" className="auth-login">
+                                    <Link to="/profile" className="auth-login">
                                         {' '}
                                         <span className="small-font">
                                             PROFILE
@@ -64,7 +66,10 @@ export class Header extends Component {
                                     className="btn btn-basic my-2 my-sm-0"
                                     type="submit"
                                 >
-                                    <Link to="/login" className="authentication__login--link">
+                                    <Link
+                                        to="/login"
+                                        className="authentication__login--link"
+                                    >
                                         {' '}
                                         <span className="small-font">
                                             LOGIN
@@ -95,6 +100,7 @@ export class Header extends Component {
 
 Header.propTypes = {
     logoutUser: PropTypes.func.isRequired,
+    clearCurrentProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
 };
 
@@ -104,5 +110,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { logoutUser }
+    { logoutUser, clearCurrentProfile }
 )(Header);
