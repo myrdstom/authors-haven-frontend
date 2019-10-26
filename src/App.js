@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import store from './redux/store/combineStore';
 
 import Header from './components/Header';
-import GetAllArticlesView from './components/articles/getAllArticles/container/GetAllArticlesView';
+import GetAllArticlesView from './components/articles/containers/ViewArticles/GetAllArticlesView';
 import LoginView from './components/auth/container/LoginView';
 import GetProfileView from './components/profile/container/GetProfileView';
 import CreateProfileView from './components/profile/container/CreateProfileView';
