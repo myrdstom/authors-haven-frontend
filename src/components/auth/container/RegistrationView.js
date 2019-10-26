@@ -22,9 +22,11 @@ export class RegistrationView extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors });
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const {errors} = this.props
+        if (errors !== prevProps.errors) {
+            this.setState({ errors });
             setTimeout(() => {
                 this.setState({errors: 'false'});
             }, 5000)

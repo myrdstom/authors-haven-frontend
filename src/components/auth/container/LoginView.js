@@ -21,16 +21,17 @@ export class LoginView extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.auth.isAuthenticated) {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.auth.isAuthenticated) {
             this.props.history.push('/');
         }
-        if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors });
+        if (this.props.errors !== prevProps.errors) {
+            this.setState({ errors: this.props.errors });
             setTimeout(() => {
                 this.setState({errors: 'false'});
             }, 5000)
         }
+
     }
 
     handleChange = e => {
@@ -67,6 +68,7 @@ export const mapDispatchToProps = dispatch => ({
     loginUser: userData => dispatch(loginUser(userData)),
 });
 LoginView.propTypes = {
+    loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
 };
