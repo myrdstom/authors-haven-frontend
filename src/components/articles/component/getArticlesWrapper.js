@@ -1,5 +1,5 @@
 import React from 'react';
-import getArticles from '../../../../assets/images/articles/getarticles.png';
+import getArticles from '../../../assets/images/articles/getarticles.png';
 import { Link } from 'react-router-dom';
 
 const GetArticlesWrapper = () => {
