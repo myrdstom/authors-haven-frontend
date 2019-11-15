@@ -1,4 +1,4 @@
-import { ARTICLE_LOADING, GET_ARTICLES, GET_ARTICLE } from '../actions/types';
+import { ARTICLE_LOADING, GET_ARTICLES, GET_ARTICLE, ADD_ARTICLE } from '../actions/types';
 
 const initialState = {
     articles:[],
@@ -25,6 +25,11 @@ const articleReducer = (state=initialState, action) =>{
                 ...state,
                 article: action.payload,
                 loading: false
+            }
+        case ADD_ARTICLE:
+            return {
+                ...state,
+                articles: [action.payload, ...state.articles]
             }
         default:
             return state
