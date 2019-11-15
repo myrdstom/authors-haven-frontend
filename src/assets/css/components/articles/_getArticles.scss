@@ -57,3 +57,56 @@ h3{
 .selected__tag{
   padding-top: 20px;
 }
+
+.article__box {
+  background: #fff;
+  margin: 12px;
+  padding-bottom: 2rem;
+  border-radius: 5px;
+  text-align: left;
+  overflow: hidden;
+  width:400px;
+}
+
+.article-box__img{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+  padding: 2%;
+}
+
+.article__title {
+  color: #e74c3c;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  padding: 1.8rem 0 0.2rem 0;
+}
+
+.article__author {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.view_article {
+  background: transparent;
+  padding: 0.4rem 0.6rem;
+  margin: 0 0.2rem;
+  border-radius: 1px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  float: right;
+  color: #e74c3c;
+}
+
+.image-container{
+  border-style: solid;
+  border-color: #ccc1c0;
+  box-shadow: -1px 2px 34px -13px rgba(0,0,0,0.75);
+
+}
+
+
