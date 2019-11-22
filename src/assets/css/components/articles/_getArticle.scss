@@ -1,0 +1,60 @@
+body {
+    height: 70vh;
+}
+
+.no-articles {
+    margin: 0 auto;
+    color: red;
+    padding-left: 40%;
+    padding-top: 15%;
+}
+
+.article__box-img {
+    margin-top: 5%;
+    margin-left: 20%;
+    padding: 0;
+    height: 20%;
+    width: 60%;
+}
+
+.article__text {
+    margin-top: 5%;
+    padding: 0 10%;
+}
+
+.article__title {
+    font-size: $large-font-size;
+    font-family: $font-family-base;
+}
+
+.article__body {
+    margin-top: 5%;
+    text-align: center;
+    font-size: $small-font-size;
+    font-family: $article-body-font;
+}
+
+.section{
+    float: left;
+    margin: 0 1.5%;
+    width: 5%;
+}
+
+article-favicons{
+    padding-top: 90%;
+    float: right;
+}
+
+.edit-article{
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 24px;
+
+}
+
+.delete-article{
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 24px;
+
+}
