@@ -14,13 +14,12 @@ const  RenderArticles =(props) => {
             <div>
                  <div className="col-md-4">
                     <div className="article__box my-2">
-                        <div className="container">
+                        <div className="image-container">
                             <img className="article-box__img" src={defaultImage} alt="The article Image"/>
                         </div>
-                        <div className="card-body text-dark">
+                        <div className="text-dark">
                             <div className="article__title">{article.title} </div>
-                            <div className="article__author">{article.author} </div>
-                            <p></p>
+                            <span className="article__author">{article.author} </span>
                             <a href="#" className="view_article">More</a>
                         </div>
                     </div>
