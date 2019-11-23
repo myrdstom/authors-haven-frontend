@@ -3,9 +3,17 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../redux/actions/auth/auth';
-import { clearCurrentProfile } from '../redux/actions/profile/profileActions';
+import { clearCurrentProfile, getCurrentProfile } from '../redux/actions/profile/profileActions';
+import avatar from '../assets/images/avatar.png';
+
+
+
+import {ButtonGroup, Dropdown} from 'react-bootstrap';
 
 export class Header extends Component {
+    componentDidMount() {
+    }
+
     onLogoutClick = e => {
         e.preventDefault();
         this.props.clearCurrentProfile();
@@ -13,6 +21,20 @@ export class Header extends Component {
     };
     render() {
         const { isAuthenticated } = this.props.auth;
+        const {profile} = this.props;
+        const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+            <a
+                href=""
+                ref={ref}
+                onClick={e => {
+                    e.preventDefault();
+                    onClick(e);
+                }}
+            >
+                {children}
+                &#x25bc;
+            </a>
+        ));
         return (
             <nav className="shadow navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
@@ -33,17 +55,25 @@ export class Header extends Component {
                         {isAuthenticated && (
                             <div>
                                 <img src="" alt="" className="rounded-circle" />
-                                <button
-                                    className="btn btn-basic my-2 my-sm-0"
-                                    type="submit"
-                                >
-                                    <Link to="/profile" className="auth-login">
-                                        {' '}
-                                        <span className="small-font">
-                                            PROFILE
-                                        </span>
-                                    </Link>
-                                </button>
+                                <ButtonGroup>
+                                    <span className="profile-button">
+                                        <Dropdown>
+                                            <Dropdown.Toggle  as={CustomToggle} className = "dropdown-toggle">
+                                                <span id='avatar'>
+                                                    <i id= "avatar-icon" className='fas fa-user-circle fa-2x' />
+                                                </span>
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item >
+                                                    <Link to='/profile'>Action</Link>
+                                                    </Dropdown.Item>
+                                               <Dropdown.Item >
+                                                   <Link to='/profile'>Action</Link>
+                                                   </Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </span>
                                 <button
                                     className="btn btn-outline-primary my-2 my-sm-0"
                                     type="submit"
@@ -58,6 +88,7 @@ export class Header extends Component {
                                         </span>
                                     </Link>
                                 </button>
+                                </ButtonGroup>
                             </div>
                         )}
                         {!isAuthenticated && (
@@ -98,6 +129,7 @@ export class Header extends Component {
     }
 }
 
+
 Header.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     clearCurrentProfile: PropTypes.func.isRequired,
@@ -106,9 +138,10 @@ Header.propTypes = {
 
 const mapStateToProps = state => ({
     auth: state.auth,
+    profile: state.profile,
 });
 
 export default connect(
     mapStateToProps,
-    { logoutUser, clearCurrentProfile }
+    { logoutUser, clearCurrentProfile, getCurrentProfile }
 )(Header);

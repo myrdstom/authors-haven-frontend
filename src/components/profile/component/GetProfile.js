@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import avatar from '../../../assets/images/avatar.png'
+import avatar from '../../../assets/images/avatar.png';
 
 function GetProfile(props) {
     const { username, email } = props.user;
     const { bio, firstName, lastName } = props.profile;
-    let fullName
+    let fullName;
     // eslint-disable-next-line
-    {!firstName && !lastName ? fullName = '' : fullName = firstName + ' ' +lastName}
+    {
+        !firstName && !lastName
+            ? (fullName = '')
+            : (fullName = firstName + ' ' + lastName);
+    }
     return (
         <div>
             <div className="get__profile-container">
@@ -18,7 +22,19 @@ function GetProfile(props) {
                             <div className="col-md-4">
                                 <div className="avatar-upload">
                                     <div className="avatar-preview">
-                                        <img className="profile__avatar" src={avatar} alt=""/>
+                                        {props.profile.avatar ? (
+                                            <img
+                                                className="profile__avatar"
+                                                src={props.profile.avatar }
+                                                alt=""
+                                            />
+                                        ) : (
+                                            <img
+                                                className="profile__avatar"
+                                                src={avatar}
+                                                alt=""
+                                            />
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -27,24 +43,33 @@ function GetProfile(props) {
                                     <span>
                                         <strong>{username}</strong>{' '}
                                     </span>
-                                        <Link to="/create-profile">
-                                            <i className="fa fa-pencil float-right edit_button"></i>
-
-                                        </Link>
-                                    <br/>
-                                    <br/>
+                                    <Link to="/create-profile">
+                                        <i className="fa fa-pencil float-right edit_button"></i>
+                                    </Link>
+                                    <br />
+                                    <br />
                                     <ul>
-                                        <li>{}
+                                        <li>
+                                            {}
                                             <i className="fa fa-user"></i>
-                                            &nbsp;&nbsp;<span className="profile__element">{ fullName }</span>
+                                            &nbsp;&nbsp;
+                                            <span className="profile__element">
+                                                {fullName}
+                                            </span>
                                         </li>
                                         <li>
                                             <i className="fa fa-envelope-o"></i>
-                                            &nbsp;&nbsp;<span className="profile__element">{email}</span>
+                                            &nbsp;&nbsp;
+                                            <span className="profile__element">
+                                                {email}
+                                            </span>
                                         </li>
                                         <li>
                                             <i className="fa fa-comment"></i>
-                                            &nbsp;&nbsp;<span className="profile__element">{bio}</span>
+                                            &nbsp;&nbsp;
+                                            <span className="profile__element">
+                                                {bio}
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 import { GET_ARTICLES, GET_ARTICLE, ARTICLE_LOADING } from '../types';
-import { setProfileLoading } from '../profile/profileActions';
 
 export const getAllArticles = () => dispatch => {
     dispatch(setArticleLoading);
@@ -13,14 +12,19 @@ export const getAllArticles = () => dispatch => {
     );
 };
 
-export const getArticle = () => dispatch => {
+export const getArticle = (articleSlug) => dispatch => {
     dispatch(setArticleLoading);
-    axios.get(`/api/articles/{}`).then(res =>
+
+    axios.get(`/api/articles/${articleSlug}`).then(res =>
         dispatch({
             type: GET_ARTICLE,
             payload: res.data,
         })
-    );
+    ).catch(err => dispatch({
+        type: GET_ARTICLE,
+        payload: null
+    }));
+
 };
 
 // export const createArticle = () => dispatch => {
