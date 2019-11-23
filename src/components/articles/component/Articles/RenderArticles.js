@@ -1,15 +1,10 @@
 import React  from 'react';
 import {Link} from 'react-router-dom'
-import defaultImage from '../../../assets/images/articles/default.jpg';
+import defaultImage from '../../../../assets/images/articles/default.jpg';
 
 
 const  RenderArticles =(props) => {
-    // {article} = this.props;
-
-
     const {article} = props;
-
-
         return (
             <div>
                  <div className="col-md-4">
@@ -18,16 +13,16 @@ const  RenderArticles =(props) => {
                             <img className="article-box__img" src={defaultImage} alt="The article Image"/>
                         </div>
                         <div className="text-dark">
-                            <div className="article__title">{article.title} </div>
-                            <span className="article__author">{article.author} </span>
-                            <a href="#" className="view_article">More</a>
+                            <div className="article__titles">{article.title} </div>
+                            <span className="article__authors">{article.author} </span>
+                            <button className="view_article">
+                                <Link to={{pathname: `/article/${article.articleSlug}/`}}>More</Link>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         );
-
-}
-
+};
 
 export default RenderArticles;

@@ -6,10 +6,12 @@ import store from './redux/store/combineStore';
 
 import Header from './components/Header';
 import GetAllArticlesView from './components/articles/containers/ViewArticles/GetAllArticlesView';
+import GetArticleView from './components/articles/containers/ViewArticle/GetArticleView';
 import LoginView from './components/auth/container/LoginView';
 import GetProfileView from './components/profile/container/GetProfileView';
 import CreateProfileView from './components/profile/container/CreateProfileView';
 import RegistrationView from './components/auth/container/RegistrationView';
+import EditArticleView from './components/articles/containers/EditArticle/EditArticleView';
 import NotFoundPage from './components/NotFoundPage';
 import checkForToken from './utils/getToken';
 
@@ -36,6 +38,8 @@ function App() {
                         path="/create-profile"
                         component={CreateProfileView}
                     />
+                    <Route exact path="/article/:articleSlug" component={GetArticleView} />
+                    <Route exact path="/article/:articleSlug/edit" component={EditArticleView} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </Router>
