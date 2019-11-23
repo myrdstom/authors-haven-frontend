@@ -1,39 +1,43 @@
-import { ARTICLE_LOADING, GET_ARTICLES, GET_ARTICLE, ADD_ARTICLE } from '../actions/types';
+import {
+    ARTICLE_LOADING,
+    GET_ARTICLES,
+    GET_ARTICLE,
+    ADD_ARTICLE,
+} from '../actions/types';
 
 const initialState = {
-    articles:[],
-    article:{},
-    loading: false
+    articles: [],
+    article: {},
+    loading: false,
 };
 
-
-const articleReducer = (state=initialState, action) =>{
-    switch(action.type){
+const articleReducer = (state = initialState, action) => {
+    switch (action.type) {
         case ARTICLE_LOADING:
-            return{
+            return {
                 ...state,
-                loading:true
-            }
+                loading: true,
+            };
         case GET_ARTICLES:
             return {
                 ...state,
                 articles: action.payload,
-                loading: false
-            }
+                loading: false,
+            };
         case GET_ARTICLE:
             return {
                 ...state,
                 article: action.payload,
-                loading: false
-            }
+                loading: false,
+            };
         case ADD_ARTICLE:
             return {
                 ...state,
-                articles: [action.payload, ...state.articles]
-            }
+                articles: [action.payload, ...state.articles],
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default articleReducer;

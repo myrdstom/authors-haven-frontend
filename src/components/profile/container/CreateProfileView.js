@@ -94,7 +94,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 CreateProfileView.propTypes = {
-    getCurrentProfile: PropTypes.func,
+    getCurrentProfile: PropTypes.func, //Look ito the getCurrentProfile dispatch
     createProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
