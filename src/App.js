@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import store from './redux/store/combineStore';
 
-import Header from './components/Header';
+import Header from './components/header/container/Header';
 import GetAllArticlesView from './components/articles/containers/ViewArticles/GetAllArticlesView';
 import GetArticleView from './components/articles/containers/ViewArticle/GetArticleView';
 import LoginView from './components/auth/container/LoginView';

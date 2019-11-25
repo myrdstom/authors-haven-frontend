@@ -58,3 +58,50 @@
     color: white;
     text-decoration: none;
 }
+
+.profile-button{
+    margin-right: 30px;
+}
+.dropdown-toggle{
+    background: $background;
+    color: $background;
+    border: 1px solid #ececec;
+    padding: 10px 1000px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    margin: 0;
+}
+
+.dropdown-toggle:hover{
+    background: $background;
+    color: $background;
+    border: 1px solid #ececec;
+    padding: 10px 20px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    margin: 0;
+}
+
+#avatar-icon{
+    background: $background;
+    color: $light-grey;
+}
+
+#avatar-icon:hover{
+    background: $background;
+    color: $light-grey;
+}
+#avatar-image-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+#avatar{
+color: white;
+    background: white;
+}
