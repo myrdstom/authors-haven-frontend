@@ -7,6 +7,7 @@ const Article = props => {
     return (
         <div className="container">
             <div className="row">
+
                 <span id="article__title" className="article__title">{article.author}</span>
                 { auth.user.username === article.author ?
                     <span className="article-favicons">
