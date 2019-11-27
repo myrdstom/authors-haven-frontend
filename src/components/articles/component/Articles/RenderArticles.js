@@ -10,7 +10,7 @@ const  RenderArticles =(props) => {
                  <div className="col-md-4">
                     <div className="article__box my-2">
                         <div className="image-container">
-                            <img className="article-box__img" src={defaultImage} alt="The article Image"/>
+                            <img className="article-box__img" src={defaultImage} alt="The article"/>
                         </div>
                         <div className="text-dark">
                             <div className="article__titles">{article.title} </div>

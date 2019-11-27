@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getArticle } from '../../../../redux/actions/articles/articlesAction';
 import NotFoundPage from '../../../NotFoundPage';
 import Article from '../../component/Article/Article';
-// import Loader from '../../../Loader';
+import Loader from '../../../Loader';
 
 class GetArticleView extends Component {
     componentDidMount() {
@@ -14,6 +14,14 @@ class GetArticleView extends Component {
 
     render() {
         const { article, loading, auth } = this.props;
+
+        if(loading){
+            return (
+                <div>
+                    <Loader/>
+                </div>
+            )
+        }
         return (
             <div>
                 {article === null ? (

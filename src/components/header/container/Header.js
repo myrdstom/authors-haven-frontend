@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../redux/actions/auth/auth';
@@ -7,9 +6,7 @@ import {
     clearCurrentProfile,
     getCurrentProfile,
 } from '../../../redux/actions/profile/profileActions';
-import avatar from '../../../assets/images/avatar.png';
 
-import { ButtonGroup, Dropdown } from 'react-bootstrap';
 import RenderHeader from '../component/RenderHeader';
 
 export class Header extends Component {
