@@ -1,14 +1,40 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import avatar from '../../../assets/images/avatar.png';
 
 function CreateProfile(props) {
-    const { bio, firstName, lastName, errors } = props;
+    const { bio, firstName, lastName, errors, onSubmit, onChange, onMouseClick } = props;
+
     return (
         <div className="create__profile-container">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-8 m-auto">
-                        <form noValidate onSubmit={props.onSubmit}>
+                    <div className="col-md-3 float-left">
+                        <div className="avatar-upload">
+                            <div className="avatar-preview">
+                                {props.avatar ? (
+                                    <img
+                                        className="profile__avatar"
+                                        src={props.avatar }
+                                        onClick={onMouseClick}
+                                        alt=""
+                                    />
+                                ) : (
+                                    <img
+                                        className="profile__avatar"
+                                        src={avatar}
+                                        onClick={onMouseClick}
+                                        alt=""
+                                    />
+                                )}
+                            </div>
+                            <div className="icon">
+                                <div className="camera4"><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-8 float-right">
+                        <form noValidate onSubmit={onSubmit} onClick={onMouseClick}>
                             <h1 className="update__profile text-center">
                                 Update Your Profile
                             </h1>
@@ -25,7 +51,7 @@ function CreateProfile(props) {
                                     className="form-control profile__input"
                                     name="firstName"
                                     value={firstName}
-                                    onChange={props.onChange}
+                                    onChange={onChange}
                                     id="firstName"
                                     required
                                 />
@@ -41,7 +67,7 @@ function CreateProfile(props) {
                                     className="form-control profile__input"
                                     name="lastName"
                                     value={lastName}
-                                    onChange={props.onChange}
+                                    onChange={onChange}
                                     id="lastName"
                                     required
                                 />
@@ -69,6 +95,7 @@ function CreateProfile(props) {
                             <input
                                 type="submit"
                                 className="btn btn-primary btn-block mt-4"
+                                value="Save"
                             />
                         </form>
                     </div>

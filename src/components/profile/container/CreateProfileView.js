@@ -13,6 +13,7 @@ class CreateProfileView extends Component {
     constructor() {
         super();
         this.state = {
+            avatar:'',
             firstName: '',
             lastName: '',
             bio: '',
@@ -38,8 +39,9 @@ class CreateProfileView extends Component {
         }
 
         if (nextProps.profile.profile && nextProps.profile.loading === false) {
-            const { firstName, lastName, bio } = nextProps.profile.profile;
+            const { firstName, lastName, bio, avatar } = nextProps.profile.profile;
             this.setState({
+                avatar,
                 firstName,
                 lastName,
                 bio,
@@ -51,9 +53,18 @@ class CreateProfileView extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+
+
+    mouseClick= () =>{
+        console.log('clicked the picture')
+    };
+
+
+
     handleSubmit = e => {
         e.preventDefault();
         const profileData = {
+            avatar: this.state.avatar,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             bio: this.state.bio,
@@ -63,23 +74,28 @@ class CreateProfileView extends Component {
         createProfile(profileData, history);
     };
 
+
     render() {
-        const { firstName, lastName, bio, errors } = this.state;
+        const { firstName, lastName, bio, errors, avatar } = this.state;
         const { user } = this.props.auth;
         const { profile, loading } = this.props;
+
         return (
             <div>
                 {profile.profile === null || loading === true ? (
                     <Loader />
                 ) : (
                     <CreateProfile
+                        avatar={avatar}
                         firstName={firstName}
                         lastName={lastName}
                         bio={bio}
                         errors={errors}
+                        user={user}
+                        onMouseClick = {this.mouseClick}
                         onChange={this.handleChange}
                         onSubmit={this.handleSubmit}
-                        user={user}
+
                     />
                 )}
             </div>

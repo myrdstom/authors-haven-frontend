@@ -28,7 +28,10 @@
   width: 148px;
   height: 142px;
   border-radius: 100%;
+  cursor: pointer;
 }
+
+
 
 .profile__details {
   margin-left: 10%;
@@ -52,4 +55,87 @@ ul {
 .update__profile{
   color: $blue;
   font-weight: bold;
+}
+
+
+// Camera icon on profile picture
+.icon{
+  opacity: 0;
+}
+
+.camera4{
+  display:block;
+  width:70%;
+  height:50%;
+  position:absolute;
+  top:30%;
+  left:15%;
+  background-color:#8c7e7d;
+  border-radius:5px;
+  border-style: solid;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.camera4:after{
+  content:"";
+  display:block;
+  width:40px;
+  height:40px;
+  border:7px solid #000;
+  position:absolute;
+  top:15%;
+  left:30%;
+  background-color:#000;
+  border-radius:25px;
+  cursor: pointer;
+
+}
+
+
+.camera4:before{
+  content:"";
+  display:block;
+  width:50%;
+  height:10px;
+  position:absolute;
+  top:-16%;
+  left:25%;
+  background-color:#8c7e7d;
+  border: solid #fff;
+  border-radius:10px;
+  cursor: pointer;
+}
+
+.icon:hover{
+  opacity: 0.6;
+  animation: fadein 2s;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100%   { opacity: 0.6; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  0% { opacity: 0; }
+  100%   { opacity: 0.6; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.6; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.6; }
 }
