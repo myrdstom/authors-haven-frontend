@@ -22,7 +22,7 @@ const Article = props => {
                 <img
                     className="article__box-img"
                     src={defaultImage}
-                    alt="The article Image"
+                    alt="The article"
                 />
                 <div className="article__text">
                     <span className="article__title">{article.title}</span>

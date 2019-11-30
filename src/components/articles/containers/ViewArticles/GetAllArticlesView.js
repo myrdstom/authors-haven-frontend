@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import Loader from '../../../Loader';
+import Loader from '../../../Loader';
 import GetArticlesWrapper from '../../component/Articles/getArticlesWrapper';
 import GetArticle from './GetArticle';
 import { getAllArticles } from '../../../../redux/actions/articles/articlesAction';
+import { getCurrentProfile } from '../../../../redux/actions/profile/profileActions';
 
 class GetAllArticlesView extends Component {
     render() {
@@ -13,17 +14,28 @@ class GetAllArticlesView extends Component {
 
         return (
             <div>
-                <GetArticlesWrapper />
-                <GetArticle
-                articles={articles}
-                />
+
+                {
+                    loading || this.props.profile.loading ?
+                    <div>
+                        <Loader/>
+                    </div>:
+                    <div>
+                        <GetArticlesWrapper/>
+                        < GetArticle
+                        articles={articles}
+                        />
+                    </div>
+            }
             </div>
+
         );
     }
 }
 
 export const mapDispatchToProps = dispatch => ({
     getAllArticles: dispatch(getAllArticles()), //Look into this getAllArticles dispatch
+    getCurrentProfile: dispatch(getCurrentProfile()),
 
 });
 
@@ -33,6 +45,7 @@ GetAllArticlesView.propTypes = {
 
 export const mapStateToProps = state => ({
     articles: state.articles,
+    profile: state.profile,
 });
 
 export default connect(

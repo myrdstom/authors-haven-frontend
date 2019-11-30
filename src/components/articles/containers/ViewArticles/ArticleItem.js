@@ -5,7 +5,7 @@ import RenderArticles from '../../component/Articles/RenderArticles';
 
 class ArticleItem extends Component {
     render() {
-        const {article, auth} = this.props;
+        const {article} = this.props;
         return (
             <div>
                 <RenderArticles article={article}/>
