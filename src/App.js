@@ -7,6 +7,7 @@ import store from './redux/store/combineStore';
 import Header from './components/header/container/Header';
 import GetAllArticlesView from './components/articles/containers/ViewArticles/GetAllArticlesView';
 import GetArticleView from './components/articles/containers/ViewArticle/GetArticleView';
+import CreateArticleView from './components/articles/containers/CreateArticles/CreateArticleView';
 import LoginView from './components/auth/container/LoginView';
 import GetProfileView from './components/profile/container/GetProfileView';
 import CreateProfileView from './components/profile/container/CreateProfileView';
@@ -26,6 +27,7 @@ function App() {
                 <ToastContainer autoClose={3000} />
                 <Switch>
                     <Route exact path="/" component={GetAllArticlesView} />
+                    <Route exact path="/article" component={CreateArticleView} />
                     <Route exact path="/login" component={LoginView} />
                     <Route
                         exact

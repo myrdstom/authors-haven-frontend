@@ -48,7 +48,6 @@ function CreateProfile(props) {
                         <form
                             noValidate
                             onSubmit={onSubmit}
-                            onClick={onMouseClick}
                         >
                             <h1 className="update__profile text-center">
                                 Update Your Profile
