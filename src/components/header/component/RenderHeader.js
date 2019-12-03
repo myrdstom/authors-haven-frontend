@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ButtonGroup } from 'react-bootstrap';
 
 const RenderHeader = props => {
     const { isAuthenticated, profile, onLogoutClick } = props;
@@ -9,7 +8,7 @@ const RenderHeader = props => {
         <nav className="shadow navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <Link to="/" className="navbar-brand">
-                    Listicle
+                    <strong>Listicle</strong>
                 </Link>
                 <div className="navbar--center">
                     <form className="form-inline">
@@ -25,7 +24,6 @@ const RenderHeader = props => {
                     {isAuthenticated && (
                         <div>
                             <img src="" alt="" className="rounded-circle" />
-                            <ButtonGroup>
                                 <span className="profile-button">
                                     <span id="avatar">
                                         <Link to="/profile">
@@ -39,9 +37,10 @@ const RenderHeader = props => {
                                                     alt=""
                                                 />
                                             ) : (
+
                                                 <i
                                                     id="avatar-icon"
-                                                    className="fas fa-user-circle fa-2x"
+                                                    className="fas fa-user-circle"
                                                 />
                                             )}
                                         </Link>
@@ -53,15 +52,13 @@ const RenderHeader = props => {
                                 >
                                     <Link
                                         to="/"
-                                        className="auth-register"
+                                        className="authentication__register--link"
                                         onClick={onLogoutClick}
                                     >
-                                        <span className="small-font">
-                                            LOGOUT
-                                        </span>
+                                        LOGOUT
                                     </Link>
                                 </button>
-                            </ButtonGroup>
+
                         </div>
                     )}
                     {!isAuthenticated && (
@@ -75,7 +72,9 @@ const RenderHeader = props => {
                                     className="authentication__login--link"
                                 >
                                     {' '}
-                                    <span className="small-font">LOGIN</span>
+                                    <span className="small-font">
+                                        <strong>LOGIN</strong>
+                                    </span>
                                 </Link>
                             </button>
                             <button
@@ -86,9 +85,7 @@ const RenderHeader = props => {
                                     to="/register"
                                     className="authentication__register--link"
                                 >
-                                    <span className="small-font">
-                                        GET STARTED
-                                    </span>
+                                    GET STARTED
                                 </Link>
                             </button>
                         </div>
