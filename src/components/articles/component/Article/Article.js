@@ -7,18 +7,30 @@ const Article = props => {
     return (
         <div className="container">
             <div className="row">
-
-                <span id="article__title" className="article__title">{article.author}</span>
-                { auth.user.username === article.author ?
+                <span id="article__title" className="article__title">
+                    {article.author}
+                </span>
+                {auth.user.username === article.author ? (
                     <span className="article-favicons">
-                        <Link to={{ pathname: `/article/${article.articleSlug}/edit/` }}>
+                        <Link
+                            to={{
+                                pathname: `/article/${article.articleSlug}/edit/`,
+                            }}
+                        >
                             <i className="fa fa-pencil edit-article"></i>
                         </Link>
-                        <Link to={{ pathname: `/article/${article.articleSlug}/edit/` }}>
+                        <Link
+                            to={{
+                                pathname: `/article/${article.articleSlug}/edit/`,
+                            }}
+                        >
                             <i className="fas fa-trash-alt delete-article"></i>
                         </Link>
                     </span>
-                : ''}
+                ) : (
+                    <span className="article-favicons"></span>
+                )}
+
                 <img
                     className="article__box-img"
                     src={defaultImage}

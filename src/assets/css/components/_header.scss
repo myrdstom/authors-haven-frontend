@@ -35,7 +35,6 @@
     color: yellow;
 }
 
-
 .navbar--right {
     display: flex;
     justify-content: flex-end;
@@ -47,22 +46,43 @@
     color: black;
     text-decoration: none;
 }
+
 .authentication__login--link:hover {
+    color: #ffffff;
     text-decoration: none;
 }
 
-.authentication__register--link {
-    text-decoration: none;
-}
 .authentication__register--link:hover {
-    color: white;
     text-decoration: none;
+    color: white;
 }
+.btn-outline-primary {
+    font-family: Poppins, Helvetica, sans-serif;
+    font-size: $small-font-size;
+    color: $blue;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid $blue;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-outline-primary:hover {
+    text-decoration: none;
+    color: white;
+    background: $blue;
+    border: 2px solid $blue;
+}
+
+/* Profile buttons */
+
 
 .profile-button{
     margin-right: 30px;
 }
-.dropdown-toggle{
+
+.dropdown-toggle {
     background: $background;
     color: $background;
     border: 1px solid #ececec;
@@ -74,7 +94,7 @@
     margin: 0;
 }
 
-.dropdown-toggle:hover{
+.dropdown-toggle:hover {
     background: $background;
     color: $background;
     border: 1px solid #ececec;
@@ -86,22 +106,25 @@
     margin: 0;
 }
 
-#avatar-icon{
+#avatar-icon {
     background: $background;
     color: $light-grey;
+    vertical-align: -25%;
+    font-size: 35px;
 }
 
-#avatar-icon:hover{
+#avatar-icon:hover {
     background: $background;
     color: $light-grey;
 }
-#avatar-image-icon{
+#avatar-image-icon {
     height: 40px;
     width: 40px;
     border-radius: 50%;
 }
 
-#avatar{
-color: white;
+#avatar {
+    color: white;
     background: white;
 }
+
