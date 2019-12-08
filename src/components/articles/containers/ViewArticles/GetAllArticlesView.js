@@ -11,6 +11,9 @@ import { getCurrentProfile } from '../../../../redux/actions/profile/profileActi
 class GetAllArticlesView extends Component {
     render() {
         const {articles, loading} = this.props.articles;
+        const {auth} = this.props;
+
+        console.log(auth, 'the auth render');
 
         return (
             <div>
@@ -21,7 +24,9 @@ class GetAllArticlesView extends Component {
                         <Loader/>
                     </div>:
                     <div>
-                        <GetArticlesWrapper/>
+                        <GetArticlesWrapper
+                            auth={auth}
+                        />
                         < GetArticle
                         articles={articles}
                         />
@@ -40,12 +45,18 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 GetAllArticlesView.propTypes = {
-    articles: PropTypes.object.isRequired
+    articles: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
+    getAllArticles: PropTypes.object,
+    getCurrentProfile: PropTypes.object
+
 };
 
 export const mapStateToProps = state => ({
     articles: state.articles,
     profile: state.profile,
+    auth: state.auth
 });
 
 export default connect(
