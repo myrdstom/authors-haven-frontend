@@ -17,7 +17,7 @@ const Article = props => {
                                 pathname: `/article/${article.articleSlug}/edit/`,
                             }}
                         >
-                            <i className="fa fa-pencil edit-article"></i>
+                            <i className="fa fa-pencil edit-article"/>
                         </Link>
                         <Link
                             to={{
@@ -25,11 +25,11 @@ const Article = props => {
                             }}
                             onClick = {onDeleteClick}
                         >
-                            <i className="fas fa-trash-alt delete-article"></i>
+                            <i className="fas fa-trash-alt delete-article"/>
                         </Link>
                     </span>
                 ) : (
-                    <span className="article-favicons"></span>
+                    <span className="article-favicons"/>
                 )}
 
                 <img
@@ -42,6 +42,13 @@ const Article = props => {
                     <br />
                     <span className="article__body">{article.body}</span>
                 </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div>
+                <span><i className="fa fa-thumbs-o-up fa-2x like-icon"/></span> &nbsp; &nbsp; &nbsp;
+                <span><i className="fa fa-thumbs-o-down fa-2x dislike-icon"/></span>
             </div>
         </div>
     );
