@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getArticle } from '../../../../redux/actions/articles/articlesAction';
+import { deleteArticle, getArticle } from '../../../../redux/actions/articles/articlesAction';
 import {
     likeArticle,
     dislikeArticle,
@@ -78,6 +78,12 @@ class GetArticleView extends Component {
         dislikeArticle(articleSlug, history);
     };
 
+    onDeleteClick =() =>{
+        const articleSlug = this.props.match.params.articleSlug;
+        const {deleteArticle} = this.props
+        deleteArticle(articleSlug);
+    }
+
     render() {
         const { article, loading, auth } = this.props;
         const { likedStatus, dislikedStatus } = this.state;
@@ -99,6 +105,7 @@ class GetArticleView extends Component {
                         auth={auth}
                         likedStatus={likedStatus}
                         dislikedStatus={dislikedStatus}
+                        onDeleteClick = {this.onDeleteClick}
                         onHandleLike={this.like}
                         onHandleDislike={this.dislike}
                     />
@@ -115,12 +122,14 @@ export const mapDispatchToProps = dispatch => ({
         dispatch(likeArticle(articleSlug, history)),
     getArticle: articleSlug => dispatch(getArticle(articleSlug)),
     getCurrentProfile: dispatch(getCurrentProfile()),
+    deleteArticle: articleSlug => dispatch(deleteArticle(articleSlug)),
 });
 GetArticleView.propTypes = {
     getArticle: PropTypes.func.isRequired,
     article: PropTypes.object.isRequired,
     likeArticle: PropTypes.func,
     dislikeArticle: PropTypes.func,
+    deleteArticle: PropTypes.func
 };
 export const mapStateToProps = state => ({
     article: state.articles.article,
