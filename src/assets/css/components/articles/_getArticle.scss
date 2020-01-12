@@ -2,6 +2,8 @@ body {
     height: 70vh;
 }
 
+// Article styling
+
 .no-articles {
     margin: 0 auto;
     color: red;
@@ -51,6 +53,13 @@ body {
     margin-top: 5%;
 }
 
+#article__title {
+    display: inline;
+    margin-top: 5%;
+}
+
+// edit and delete article buttons
+
 .edit-article {
     color: $dark-grey;
     padding-left: 10px;
@@ -63,7 +72,20 @@ body {
     font-size: 20px;
 }
 
-#article__title {
-    display: inline;
-    margin-top: 5%;
+// Like and dislike icons
+
+.likeBlue {
+    color:$blue;
+}
+
+.dislikeBlue {
+    color:$blue;
+}
+
+.like:hover {
+    cursor: pointer;
+}
+
+.dislike:hover {
+    cursor: pointer;
 }

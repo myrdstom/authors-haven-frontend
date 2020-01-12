@@ -14,6 +14,7 @@ const  RenderArticles =(props) => {
                         </div>
                         <div className="text-dark">
                             <div className="article__titles">{article.title} </div>
+                            <div className="article__authors">LIKES: {article.likes.length - article.dislikes.length} </div>
                             <span className="article__authors">{article.author} </span>
                             <button className="view_article">
                                 <Link to={{pathname: `/article/${article.articleSlug}/`}}>More</Link>

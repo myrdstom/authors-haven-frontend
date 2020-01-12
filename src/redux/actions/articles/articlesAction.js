@@ -72,9 +72,7 @@ export const deleteArticle = (articleSlug, history) => dispatch => {
             type: DELETE_ARTICLE,
             payload: res.data
         }))
-        .then(res => {
-            // history.push('/');
-        })
+        .then(res => dispatch(getAllArticles()))
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,

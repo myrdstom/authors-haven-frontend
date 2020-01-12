@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import defaultImage from '../../../../assets/images/articles/default.jpg';
 
 const Article = props => {
-    const { article, auth, onDeleteClick } = props;
+    const { article, auth, onHandleLike, onDeleteClick, onHandleDislike, likedStatus, dislikedStatus } = props;
     return (
         <div className="container">
             <div className="row">
@@ -17,7 +17,7 @@ const Article = props => {
                                 pathname: `/article/${article.articleSlug}/edit/`,
                             }}
                         >
-                            <i className="fa fa-pencil edit-article"></i>
+                            <i className="fa fa-pencil edit-article"/>
                         </Link>
                         <Link
                             to={{
@@ -25,11 +25,11 @@ const Article = props => {
                             }}
                             onClick = {onDeleteClick}
                         >
-                            <i className="fas fa-trash-alt delete-article"></i>
+                            <i className="fas fa-trash-alt delete-article"/>
                         </Link>
                     </span>
                 ) : (
-                    <span className="article-favicons"></span>
+                    <span className="article-favicons"/>
                 )}
 
                 <img
@@ -42,6 +42,25 @@ const Article = props => {
                     <br />
                     <span className="article__body">{article.body}</span>
                 </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div>
+                {likedStatus ?
+                    <span className="likeBlue"><i className="fa fa-thumbs-o-up fa-2x like-icon"
+                                              onClick={onHandleLike} style={{color: "blue"}}/> </span>
+                    :
+                    <span className="like"><i className="fa fa-thumbs-o-up fa-2x like-icon"
+                    onClick={onHandleLike}/></span>
+                }
+                &nbsp; &nbsp; &nbsp;
+                { dislikedStatus ?
+                    <span className="dislikeBlue"><i className="fa fa-thumbs-o-down fa-2x dislike-icon" onClick={onHandleDislike} style={{color: "blue"}}/></span>
+                    :
+                    <span className="dislike"><i className="fa fa-thumbs-o-down fa-2x dislike-icon" onClick={onHandleDislike}/></span>
+
+                }
             </div>
         </div>
     );
