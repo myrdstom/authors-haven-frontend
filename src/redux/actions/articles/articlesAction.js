@@ -5,6 +5,7 @@ import {
     GET_ARTICLE,
     ARTICLE_LOADING,
     GET_ERRORS,
+    DELETE_ARTICLE
 } from '../types';
 
 export const getAllArticles = () => dispatch => {
@@ -53,7 +54,7 @@ export const editArticle = (articleData, articleSlug, history) => dispatch => {
     dispatch(setArticleLoading());
     axios
         .put(`/api/articles/${articleSlug}`, articleData)
-        .then(res => history.push(`/api/articles/{}`))
+        .then(res => history.push(`/api/articles/${articleSlug}`))
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
@@ -62,12 +63,25 @@ export const editArticle = (articleData, articleSlug, history) => dispatch => {
         );
 };
 
-// export const deleteArticle = (articleSlug) => dispatch => {
-//     dispatch(setArticleLoading());
-//     axios.delete(`./api/articles/${articleSlug}`).then(res => {
-//         history.push('/');
-//     });
-// };
+export const deleteArticle = (articleSlug, history) => dispatch => {
+    dispatch(setArticleLoading());
+    axios
+        .delete(`/api/articles/${articleSlug}`)
+        .then(res =>
+        dispatch({
+            type: DELETE_ARTICLE,
+            payload: res.data
+        }))
+        .then(res => {
+            // history.push('/');
+        })
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data,
+            })
+        );
+};
 
 /**
  * @desc Profile Loading

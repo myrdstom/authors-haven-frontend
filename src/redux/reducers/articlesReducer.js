@@ -3,6 +3,7 @@ import {
     GET_ARTICLES,
     GET_ARTICLE,
     ADD_ARTICLE,
+    DELETE_ARTICLE,
 } from '../actions/types';
 
 const initialState = {
@@ -34,6 +35,13 @@ const articleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 articles: [action.payload, ...state.articles],
+            };
+        case DELETE_ARTICLE:
+            return {
+                ...state,
+                articles: state.articles.filter(
+                    article => article.articleSlug !== action.payload
+                ),
             };
         default:
             return state;

@@ -14,7 +14,6 @@ class EditArticleView extends Component {
         super();
         this.state = {
             title: '',
-            description: '',
             body: '',
             errors: {},
         };
@@ -40,6 +39,15 @@ class EditArticleView extends Component {
                 console.log(this.state.errors);
             });
         }
+        console.log(nextProps.article,'the next props');
+        if(nextProps.article){
+            const {avatar, body, title} = nextProps.article;
+            this.setState({
+                avatar,
+                title,
+                body,
+            });
+        }
     }
 
     handleChange = e => {
@@ -47,6 +55,9 @@ class EditArticleView extends Component {
     };
 
     handleBodyChange = (content, delta, source, editor) => {
+        if(this.state.body !== ''){
+            this.setState({ body: 'test' });
+        }
         this.setState({ body: editor.getText() });
     };
 

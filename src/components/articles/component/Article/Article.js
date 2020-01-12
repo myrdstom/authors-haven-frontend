@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import defaultImage from '../../../../assets/images/articles/default.jpg';
 
 const Article = props => {
-    const { article, auth } = props;
+    const { article, auth, onDeleteClick } = props;
     return (
         <div className="container">
             <div className="row">
@@ -21,8 +21,9 @@ const Article = props => {
                         </Link>
                         <Link
                             to={{
-                                pathname: `/article/${article.articleSlug}/edit/`,
+                                pathname: `/`,
                             }}
+                            onClick = {onDeleteClick}
                         >
                             <i className="fas fa-trash-alt delete-article"></i>
                         </Link>
