@@ -1,15 +1,5 @@
 # listicle-react-frontend
 
-
-## Hosting
-
-
-The app is currently running on
-
-```
-https://listicle-react.herokuapp.com/
-```
-
 ## How to test the repository
 
  - Clone the repository from your terminal with command: `git clone https://github.com/myrdstom/listicle-react.git`
