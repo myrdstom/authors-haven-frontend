@@ -35,11 +35,8 @@ class EditArticleView extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors }, () => {
-                console.log(this.state.errors);
-            });
+            this.setState({ errors: nextProps.errors })
         }
-        console.log(nextProps.article,'the next props');
         if(nextProps.article){
             const {avatar, body, title} = nextProps.article;
             this.setState({

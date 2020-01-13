@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteArticle, getArticle } from '../../../../redux/actions/articles/articlesAction';
+import {
+    deleteArticle,
+    getArticle,
+} from '../../../../redux/actions/articles/articlesAction';
 import {
     likeArticle,
     dislikeArticle,
@@ -11,6 +14,10 @@ import NotFoundPage from '../../../NotFoundPage';
 import Article from '../../component/Article/Article';
 import Loader from '../../../Loader';
 import { getCurrentProfile } from '../../../../redux/actions/profile/profileActions';
+
+import CreateCommentView from '../../../comments/container/CreateCommentView';
+import CommentItem from '../../../comments/component/CommentItem';
+import Footer from '../../../Footer';
 
 class GetArticleView extends Component {
     constructor() {
@@ -21,7 +28,7 @@ class GetArticleView extends Component {
             dislikes: [],
             likedStatus: '',
             dislikedStatus: '',
-            loading:'',
+            loading: '',
         };
     }
     componentDidMount() {
@@ -31,16 +38,25 @@ class GetArticleView extends Component {
         this.setState({ articleSlug });
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        setTimeout(this.status, 3000);
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (this.props.article !== nextProps) {
+            setTimeout(this.status, 3000);
+        }
     }
 
     status = () => {
         const { article, auth } = this.props;
+        let likesArray = [];
+        let dislikesArray = [];
         const userId = auth.user.id;
-        const likesArray = article.likes;
-        const dislikesArray = article.dislikes;
-        if (likesArray.length > 0) {
+        if (article && article.likes) {
+            likesArray = article.likes;
+        }
+
+        if (article && article.dislikes) {
+            dislikesArray = article.dislikes;
+        }
+        if (likesArray && likesArray.length > 0) {
             likesArray.forEach(element => {
                 if (element.user === userId) {
                     this.setState({ likedStatus: true });
@@ -49,7 +65,7 @@ class GetArticleView extends Component {
             });
         }
 
-        if (dislikesArray.length > 0) {
+        if (dislikesArray && dislikesArray.length > 0) {
             dislikesArray.forEach(element => {
                 if (element.user === userId) {
                     this.setState({ dislikedStatus: true });
@@ -72,17 +88,22 @@ class GetArticleView extends Component {
         dislikeArticle(articleSlug, history);
     };
 
-    onDeleteClick =() =>{
+    onDeleteClick = () => {
         const articleSlug = this.props.match.params.articleSlug;
-        const {deleteArticle} = this.props
+        const { deleteArticle } = this.props;
         deleteArticle(articleSlug);
-    }
+    };
 
     render() {
         const { article, loading, auth } = this.props;
         const { likedStatus, dislikedStatus } = this.state;
 
-        if (loading|| this.props.profile.loading ) {
+        if (
+            loading ||
+            this.props.profile.loading ||
+            !article ||
+            !article.likes
+        ) {
             return (
                 <div>
                     <Loader />
@@ -94,15 +115,56 @@ class GetArticleView extends Component {
                 {article === null ? (
                     <NotFoundPage />
                 ) : (
-                    <Article
-                        article={article}
-                        auth={auth}
-                        likedStatus={likedStatus}
-                        dislikedStatus={dislikedStatus}
-                        onDeleteClick = {this.onDeleteClick}
-                        onHandleLike={this.like}
-                        onHandleDislike={this.dislike}
-                    />
+                    <div>
+                        <Article
+                            article={article}
+                            auth={auth}
+                            likedStatus={likedStatus}
+                            dislikedStatus={dislikedStatus}
+                            onDeleteClick={this.onDeleteClick}
+                            onHandleLike={this.like}
+                            onHandleDislike={this.dislike}
+                        />
+                        <div>
+                            {auth.user.username ? (
+                                <CreateCommentView
+                                    articleSlug={
+                                        this.props.match.params.articleSlug
+                                    }
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </div>
+                        <hr className="comment__boundary"/>
+                        <div>
+                            <div className="container">
+                                <div className="row">
+
+                                    {article.comments ? (
+                                        <div>
+                                            {article.comments.map(comment => (
+                                                <CommentItem
+                                                    key={comment._id}
+                                                    article={article}
+                                                    auth={auth}
+                                                    comment={comment.body}
+                                                    commentId={comment._id}
+                                                    username={comment.username}
+                                                />
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        ''
+                                    )}
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
                 )}
             </div>
         );
@@ -123,7 +185,7 @@ GetArticleView.propTypes = {
     article: PropTypes.object.isRequired,
     likeArticle: PropTypes.func,
     dislikeArticle: PropTypes.func,
-    deleteArticle: PropTypes.func
+    deleteArticle: PropTypes.func,
 };
 export const mapStateToProps = state => ({
     article: state.articles.article,
