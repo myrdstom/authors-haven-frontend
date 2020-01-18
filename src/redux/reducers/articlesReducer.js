@@ -35,6 +35,7 @@ const articleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 articles: [action.payload, ...state.articles],
+                loading: false,
             };
         case DELETE_ARTICLE:
             return {
@@ -42,6 +43,7 @@ const articleReducer = (state = initialState, action) => {
                 articles: state.articles.filter(
                     article => article.articleSlug !== action.payload
                 ),
+                loading: false,
             };
         default:
             return state;

@@ -3,7 +3,6 @@ import getArticles from '../../../../assets/images/articles/getarticles.png';
 import { Link } from 'react-router-dom';
 
 const GetArticlesWrapper = props => {
-    console.log(props,'the auth props')
     return (
         <div className="articles__container">
             <div className="row">

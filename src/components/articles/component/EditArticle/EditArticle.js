@@ -39,7 +39,6 @@ class EditArticle extends Component {
 
     render() {
         const { title, onChange, onSubmit, onHandleChange } = this.props;
-        console.log(this.props);
         return (
             <div>
                 <div className="container">

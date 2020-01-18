@@ -46,7 +46,7 @@ const Article = props => {
             <br/>
             <br/>
             <br/>
-            <div>
+            <div className="likes">
                 {likedStatus ?
                     <span className="likeBlue"><i className="fa fa-thumbs-o-up fa-2x like-icon"
                                               onClick={onHandleLike} style={{color: "blue"}}/> </span>

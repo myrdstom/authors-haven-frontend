@@ -13,7 +13,6 @@ class GetAllArticlesView extends Component {
         const {articles, loading} = this.props.articles;
         const {auth} = this.props;
 
-        console.log(auth, 'the auth render');
 
         return (
             <div>
