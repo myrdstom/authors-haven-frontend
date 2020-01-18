@@ -1,4 +1,5 @@
 # listicle-react-frontend
+[![Build Status](https://travis-ci.org/myrdstom/listicle-react.svg?branch=develop)](https://travis-ci.org/myrdstom/listicle-react)
 
 ## How to test the repository
 
