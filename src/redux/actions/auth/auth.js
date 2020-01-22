@@ -4,11 +4,13 @@ import { toast } from 'react-toastify';
 import setAuthToken from '../../../utils/setAuthToken';
 
 import { GET_ERRORS, SET_CURRENT_USER } from '../types';
+import {baseUrl} from '../../../config/config';
 
 // Register the User
 export const registerUser = (userData, history) => dispatch => {
+
     axios
-        .post('api/register', userData)
+        .post(`${baseUrl}api/register`, userData)
         .then(res => {
             history.push('/login');
             toast.success('Congratulation!! You have been registered!');
@@ -24,7 +26,7 @@ export const registerUser = (userData, history) => dispatch => {
 //Login User
 export const loginUser = userData => dispatch => {
     axios
-        .post('api/login', userData)
+        .post(`${baseUrl}api/login`, userData)
         .then(res => {
             toast.success('Congratulation!! You have logged In!');
             const { token } = res.data;

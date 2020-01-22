@@ -13,7 +13,7 @@ class CreateProfileView extends Component {
     constructor() {
         super();
         this.state = {
-            avatar:'',
+            avatar: '',
             firstName: '',
             lastName: '',
             bio: '',
@@ -39,7 +39,12 @@ class CreateProfileView extends Component {
         }
 
         if (nextProps.profile.profile && nextProps.profile.loading === false) {
-            const { firstName, lastName, bio, avatar } = nextProps.profile.profile;
+            const {
+                firstName,
+                lastName,
+                bio,
+                avatar,
+            } = nextProps.profile.profile;
             this.setState({
                 avatar,
                 firstName,
@@ -53,27 +58,49 @@ class CreateProfileView extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-
-
-    mouseClick= () =>{
-        console.log('clicked the picture')
+    mouseClick = () => {
+        window.cloudinary.openUploadWidget(
+            {
+                cloudName: 'dr8lvoqjj',
+                uploadPreset: 'gt2kahpt',
+                cropping: true,
+                folder: 'widgetdocs',
+                sources: [
+                    'local',
+                    'url',
+                    'camera',
+                    'facebook',
+                    'dropbox',
+                    'search',
+                    'instagram',
+                ],
+            },
+            (error, result) => {
+                if (result.event === 'success') {
+                    let newImage = result.info.secure_url;
+                    window.localStorage.setItem('newImage', newImage);
+                    window.localStorage.setItem('image', newImage);
+                    window.location.reload();
+                }
+            }
+        );
+        console.log('clicked the picture');
     };
-
-
 
     handleSubmit = e => {
         e.preventDefault();
+
         const profileData = {
-            avatar: this.state.avatar,
+            avatar:
+                window.localStorage.getItem('newImage') || this.state.avatar,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             bio: this.state.bio,
         };
         const { createProfile, history } = this.props;
 
-        createProfile(profileData, history);
+        createProfile(profileData, history)
     };
-
 
     render() {
         const { firstName, lastName, bio, errors, avatar } = this.state;
@@ -92,10 +119,9 @@ class CreateProfileView extends Component {
                         bio={bio}
                         errors={errors}
                         user={user}
-                        onMouseClick = {this.mouseClick}
+                        onMouseClick={this.mouseClick}
                         onChange={this.handleChange}
                         onSubmit={this.handleSubmit}
-
                     />
                 )}
             </div>
