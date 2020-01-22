@@ -85,7 +85,7 @@ ul {
   border:7px solid #000;
   position:absolute;
   top:15%;
-  left:30%;
+  left:27%;
   background-color:#000;
   border-radius:25px;
   cursor: pointer;
@@ -109,11 +109,11 @@ ul {
 
 .icon:hover{
   opacity: 0.6;
-  animation: fadein 2s;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 1s;
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
 
 }
 

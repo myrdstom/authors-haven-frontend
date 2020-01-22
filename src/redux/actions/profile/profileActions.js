@@ -60,10 +60,11 @@ export const createProfile = (profileData, history) => dispatch => {
         .then(res => {
             history.push('/profile');
         })
+        .then(res => localStorage.clear())
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
-                payload: err.response.data
+                payload: err.response.data,
             })
         );
 };

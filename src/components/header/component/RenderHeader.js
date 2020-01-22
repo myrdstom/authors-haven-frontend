@@ -12,12 +12,12 @@ const RenderHeader = props => {
                 </Link>
                 <div className="navbar--center">
                     <form className="form-inline">
-                        <input
-                            className="form-control mr-sm-2 small-font"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        />
+                        {/*<input*/}
+                        {/*    className="form-control mr-sm-2 small-font"*/}
+                        {/*    type="search"*/}
+                        {/*    placeholder="Search"*/}
+                        {/*    aria-label="Search"*/}
+                        {/*/>*/}
                     </form>
                 </div>
                 <div className="navbar--right">

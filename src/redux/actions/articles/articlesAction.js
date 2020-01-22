@@ -8,9 +8,14 @@ import {
     DELETE_ARTICLE
 } from '../types';
 
+const headers = {
+    Accept: 'application/json, text/plain, */*',
+    'Content-type': 'application/json'
+};
+
 export const getAllArticles = () => dispatch => {
     dispatch(setArticleLoading);
-    axios.get('/api/articles').then(res =>
+    axios.get('/api/articles', {headers}).then(res =>
         dispatch({
             type: GET_ARTICLES,
             payload: res.data,

@@ -19,7 +19,16 @@ function CreateProfile(props) {
                     <div className="col-md-3 float-left">
                         <div className="avatar-upload">
                             <div className="avatar-preview">
-                                {props.avatar ? (
+                                {window.localStorage.getItem('image') ? (
+                                    <img
+                                        className="profile__avatar"
+                                        src={window.localStorage.getItem(
+                                            'image'
+                                        )}
+                                        onClick={onMouseClick}
+                                        alt=""
+                                    />
+                                ) : props.avatar ? (
                                     <img
                                         className="profile__avatar"
                                         src={props.avatar}
@@ -45,10 +54,7 @@ function CreateProfile(props) {
                     </div>
                     <div className="col-md-1"></div>
                     <div className="col-md-8 float-right">
-                        <form
-                            noValidate
-                            onSubmit={onSubmit}
-                        >
+                        <form noValidate onSubmit={onSubmit}>
                             <h1 className="update__profile text-center">
                                 Update Your Profile
                             </h1>
