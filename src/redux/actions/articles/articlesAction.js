@@ -8,14 +8,12 @@ import {
     DELETE_ARTICLE
 } from '../types';
 
-const headers = {
-    Accept: 'application/json, text/plain, */*',
-    'Content-type': 'application/json'
-};
+import {baseUrl} from '../../../config/config';
+
 
 export const getAllArticles = () => dispatch => {
     dispatch(setArticleLoading);
-    axios.get('/api/articles', {headers}).then(res =>
+    axios.get(`${baseUrl}/api/articles`).then(res =>
         dispatch({
             type: GET_ARTICLES,
             payload: res.data,
@@ -27,7 +25,7 @@ export const getArticle = articleSlug => dispatch => {
     dispatch(setArticleLoading);
 
     axios
-        .get(`/api/articles/${articleSlug}`)
+        .get(`${baseUrl}/api/articles/${articleSlug}`)
         .then(res =>
             dispatch({
                 type: GET_ARTICLE,
@@ -45,7 +43,7 @@ export const getArticle = articleSlug => dispatch => {
 export const createArticle = (articleData, history) => dispatch => {
     dispatch(setArticleLoading());
     axios
-        .post(`/api/articles/`, articleData)
+        .post(`${baseUrl}/api/articles/`, articleData)
         .then(res => history.push('/'))
         .catch(err =>
             dispatch({
@@ -58,7 +56,7 @@ export const createArticle = (articleData, history) => dispatch => {
 export const editArticle = (articleData, articleSlug, history) => dispatch => {
     dispatch(setArticleLoading());
     axios
-        .put(`/api/articles/${articleSlug}`, articleData)
+        .put(`${baseUrl}/api/articles/${articleSlug}`, articleData)
         .then(res => history.push(`/api/articles/${articleSlug}`))
         .catch(err =>
             dispatch({
@@ -71,7 +69,7 @@ export const editArticle = (articleData, articleSlug, history) => dispatch => {
 export const deleteArticle = (articleSlug, history) => dispatch => {
     dispatch(setArticleLoading());
     axios
-        .delete(`/api/articles/${articleSlug}`)
+        .delete(`${baseUrl}/api/articles/${articleSlug}`)
         .then(res =>
         dispatch({
             type: DELETE_ARTICLE,

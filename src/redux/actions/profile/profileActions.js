@@ -7,6 +7,8 @@ import {
     CLEAR_CURRENT_PROFILE,
 } from '../types';
 
+import {baseUrl} from '../../../config/config';
+
 /**
  * @desc Get current profile
  */
@@ -14,7 +16,7 @@ import {
 export const getCurrentProfile = () => dispatch => {
     dispatch(setProfileLoading());
     axios
-        .get('/api/profiles')
+        .get(`${baseUrl}/api/profiles`)
         .then(res =>
             dispatch({
                 type: GET_PROFILE,
@@ -56,11 +58,10 @@ export const clearCurrentProfile = () => {
 export const createProfile = (profileData, history) => dispatch => {
     dispatch(setProfileLoading());
     axios
-        .post('api/profiles', profileData)
+        .post(`${baseUrl}/api/profiles`, profileData)
         .then(res => {
             history.push('/profile');
         })
-        .then(res => localStorage.clear())
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
