@@ -2,10 +2,11 @@ import axios from 'axios';
 import { getArticle } from '../articles/articlesAction';
 
 import { DELETE_COMMENT, GET_ERRORS } from '../types';
+import { baseUrl } from '../../../config/config';
 
 export const createComment = (commentData, articleSlug) => dispatch => {
     axios
-        .post(`/api/articles/comment/${articleSlug}`, commentData)
+        .post(`${baseUrl}/api/articles/comment/${articleSlug}`, commentData)
         .then(res => dispatch(getArticle(articleSlug)))
         .catch(err =>
             dispatch({
@@ -17,7 +18,7 @@ export const createComment = (commentData, articleSlug) => dispatch => {
 
 export const deleteComment = (articleSlug, commentId) => dispatch => {
     axios
-        .delete(`/api/articles/comment/${articleSlug}/${commentId}`)
+        .delete(`${baseUrl}/api/articles/comment/${articleSlug}/${commentId}`)
         .then(res =>
             dispatch({
                 type: DELETE_COMMENT,

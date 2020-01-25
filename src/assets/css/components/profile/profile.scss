@@ -139,3 +139,14 @@ ul {
   from { opacity: 0; }
   to   { opacity: 0.6; }
 }
+
+@media only screen and (max-width: 600px) {
+  .avatar-upload  {
+    margin-left: 30%;
+    margin-bottom: 40px;
+  }
+
+  .text__container{
+    margin-top: 10%;
+  }
+}
