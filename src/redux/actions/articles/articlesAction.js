@@ -10,14 +10,10 @@ import {
 
 import {baseUrl} from '../../../config/config';
 
-const headers = {
-    Accept: 'application/json, text/plain, */*',
-    'Content-type': 'application/json'
-};
 
 export const getAllArticles = () => dispatch => {
     dispatch(setArticleLoading);
-    axios.get(`${baseUrl}/api/articles`, {headers}).then(res =>
+    axios.get(`${baseUrl}/api/articles`.then(res =>
         dispatch({
             type: GET_ARTICLES,
             payload: res.data,
