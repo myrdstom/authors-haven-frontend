@@ -15,6 +15,19 @@ function CreateProfile(props) {
     return (
         <div className="create__profile-container">
             <div className="container">
+                <div className="text__container">
+                <h1 className="update__profile text-center">
+                    Update Your Profile
+                </h1>
+                <h2>
+                    {' '}
+                    <p className="lead text-center">
+                        Let's make your profile awesome!!
+                    </p>
+                </h2>
+                <br/>
+                <br/>
+                </div>
                 <div className="row">
                     <div className="col-md-3 float-left">
                         <div className="avatar-upload">
@@ -55,15 +68,6 @@ function CreateProfile(props) {
                     <div className="col-md-1"></div>
                     <div className="col-md-8 float-right">
                         <form noValidate onSubmit={onSubmit}>
-                            <h1 className="update__profile text-center">
-                                Update Your Profile
-                            </h1>
-                            <h2>
-                                {' '}
-                                <p className="lead text-center">
-                                    Let's make your profile awesome!!
-                                </p>
-                            </h2>
                             <div className="form-group">
                                 <label htmlFor="firstName">First Name</label>
                                 <input

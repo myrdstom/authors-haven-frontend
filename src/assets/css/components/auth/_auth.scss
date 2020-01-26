@@ -1,30 +1,47 @@
 
+
+.auth__action{
+  letter-spacing: -0.01em;
+  font-size: $very-large-font-size;
+  line-height: 1.31818182em;
+  padding: 20px 0;
+}
 .authentication__container{
-  color:#ffffff;
-  padding: 40% 20%;
+  color:$blue;
+  padding: 30% 20% 0% 20%;
+
+}
+
+.auth__grid{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.item{
 
 }
 
 
 .registration__container{
-   color:#ffffff;
-   padding: 20% 20%;
+   color:$blue;
+   padding: 20%;
  }
 
 
 .authentication__aside{
-  border-top-left-radius: 60%;
-  border-bottom-left-radius: 60%;
-  background: $blue;
+  height: 94vh;
 }
 
-.authentication__image{
-  margin-left: 25%;
-  margin-top: 20%;
-  max-width: 70%;
-  max-height: 70%;
-  height: auto;
+.registration__aside{
+  height: 115%;
 }
+
+
+
+.image__container {
+  height: 94.5vh;
+  width: auto;
+}
+
 
 .sign__in{
   color: white;
@@ -32,6 +49,11 @@
 
 .sign__in:hover{
   color: white;
+}
+
+.mt-4{
+  background-color: $blue;
+  border-color: $blue;
 }
 
 //like and dislike icons

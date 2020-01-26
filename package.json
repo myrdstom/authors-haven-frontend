@@ -26,6 +26,7 @@
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
         "start": "^5.1.0",
+        "styled-components": "^5.0.0",
         "yarn": "^1.21.1"
     },
     "scripts": {
