@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import woman from '../../../assets/css/components/auth/woman.png';
+import books from '../../../assets/images/auth/Books.jpg';
 
 const SectionStyle = styled.div`
-    background-image: url(${woman});
+    background-image: url(${books});
     background-size: cover;
     height: 94.5vh;
 `;
