@@ -34,7 +34,7 @@ const Article = props => {
 
                 <img
                     className="article__box-img"
-                    src={defaultImage}
+                    src={article.articleURL || defaultImage}
                     alt="The article"
                 />
                 <div className="article__text">

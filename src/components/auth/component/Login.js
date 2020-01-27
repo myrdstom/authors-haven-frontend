@@ -1,5 +1,5 @@
 import React from 'react';
-import woman from '../../../assets/css/components/auth/woman.png';
+import woman from '../../../assets/images/auth/women.jpg';
 import styled from 'styled-components';
 
 const SectionStyle = styled.div`

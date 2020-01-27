@@ -59,9 +59,11 @@ class CreateProfileView extends Component {
     };
 
     mouseClick = () => {
+        const{history}=this.props;
         window.cloudinary.openUploadWidget(
             {
                 cloudName: 'dr8lvoqjj',
+                api_key: '456553935284737',
                 uploadPreset: 'gt2kahpt',
                 cropping: true,
                 folder: 'widgetdocs',
@@ -80,7 +82,7 @@ class CreateProfileView extends Component {
                     let newImage = result.info.secure_url;
                     window.localStorage.setItem('newImage', newImage);
                     window.localStorage.setItem('image', newImage);
-                    window.location.reload();
+                    history.push('/create-profile');
                 }
             }
         );
@@ -105,11 +107,11 @@ class CreateProfileView extends Component {
     render() {
         const { firstName, lastName, bio, errors, avatar } = this.state;
         const { user } = this.props.auth;
-        const { profile, loading } = this.props;
+        const { profile } = this.props;
 
         return (
             <div>
-                {profile.profile === null || loading === true ? (
+                {profile.profile === null || profile.loading === true ? (
                     <Loader />
                 ) : (
                     <CreateProfile
