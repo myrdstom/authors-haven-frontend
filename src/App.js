@@ -45,7 +45,7 @@ function App() {
                     <Route exact path="/article/:articleSlug/edit" component={EditArticleView} />
                     <Route component={NotFoundPage} />
                 </Switch>
-                {/*<Footer/>*/}
+                <Footer/>
             </Router>
         </Provider>
     );

@@ -9,6 +9,7 @@ body{
   padding-left: 30%;
 }
 
+
 .articles__wrapper{
   margin-top: 20px;
   padding-left: 5%;
@@ -20,7 +21,7 @@ body{
 
 .wrapper__text-container{
   margin-top: 10%;
-  margin-left: 10%;
+  margin-left: 30%;
 }
 
 h1{
@@ -48,14 +49,7 @@ h3{
   width: 100%;
 }
 
-.row.col-7{
-  max-height: 280px;
 
-}
-
-.row.col-5{
-  max-height: 280px;
-}
 
 .selected__tag{
   padding-top: 20px;
@@ -75,7 +69,7 @@ h3{
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 70%;
+  max-height: 15vh;
   padding: 2%;
 }
 
@@ -108,5 +102,70 @@ h3{
 .image-container{
   border-style: solid;
   border-color: #ccc1c0;
+  max-height: 18vh;
+}
+.create-article-favicon{
+  color: $background;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .create__article-button{
+    display: none;
+  }
+  //.wrapper__col{
+  //  display: none;
+  //}
+  .labels__row{
+    display: none;
+  }
+  //.aside__login-button{
+  //  float: right;
+  //}
+  .wrapper__text-container{
+    margin-top: -10px;
+  }
+  .wrapper__text{
+    margin-top: 10%;
+    margin-left: -40%;
+    padding-left: -20%;
+  }
+  .aside__login-button{
+    position: absolute;
+    top: 2px;
+    left: 150%;
+  }
+  .create-article-favicon {
+    margin-top: 30%;
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+
+}
+@media only screen and (max-width: 700px) {
+  .create__article-button{
+    display: none;
+  }
+  .create-article-favicon {
+    margin-top: 30%;
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .aside__login-button{
+    top: -10px;
+    left: 80%;
+  }
+
+  .article-box__img{
+    max-height: 27vh;
+  }
+  .image-container{
+    max-height: 30vh;
+  }
+
 }
 

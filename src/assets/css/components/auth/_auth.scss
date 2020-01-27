@@ -32,7 +32,7 @@
 }
 
 .registration__aside{
-  height: 115%;
+  height: 90vh;
 }
 
 
@@ -56,6 +56,14 @@
   border-color: $blue;
 }
 
-//like and dislike icons
+@media only screen and (max-width: 600px) {
+  .auth__grid{
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .image__container{
+    display: none;
+  }
+}
 
 

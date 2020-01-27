@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import woman from '../../../assets/css/components/auth/woman.png';
+import books from '../../../assets/images/auth/Books.jpg';
 
 const SectionStyle = styled.div`
-    background-image: url(${woman});
+    background-image: url(${books});
     background-size: cover;
     height: 94.5vh;
 `;
@@ -30,9 +30,10 @@ export default function Registration(props) {
                                     onChange={props.onChange}
                                     required
                                 />
-                                {props.errors.username && (
+                                {props.errors && props.errors.data && props.errors.data.username && (
+
                                     <div className="error-message">
-                                        {props.errors.username}
+                                        {props.errors.data.username}
                                     </div>
                                 )}
                             </div>
@@ -46,10 +47,10 @@ export default function Registration(props) {
                                     value={props.email}
                                     onChange={props.onChange}
                                 />
-                                {!props.errors.username
-                                    ? props.errors.email && (
+                                {props.errors && props.errors.data && !props.errors.data.username
+                                    ? props.errors.data.email && (
                                           <div className="error-message">
-                                              {props.errors.email}
+                                              {props.errors.data.email}
                                           </div>
                                       )
                                     : ''}
@@ -64,10 +65,10 @@ export default function Registration(props) {
                                     value={props.password}
                                     onChange={props.onChange}
                                 />
-                                {!props.errors.username && !props.errors.email
-                                    ? props.errors.password && (
+                                {props.errors && props.errors.data && !props.errors.data.username && !props.errors.data.email
+                                    ? props.errors.data.password && (
                                           <div className="error-message">
-                                              {props.errors.password}
+                                              {props.errors.data.password}
                                           </div>
                                       )
                                     : ''}
@@ -84,12 +85,12 @@ export default function Registration(props) {
                                     value={props.confirmPassword}
                                     onChange={props.onChange}
                                 />
-                                {!props.errors.username &&
-                                !props.errors.email &&
-                                !props.errors.password
-                                    ? props.errors.confirmPassword && (
+                                {props.errors && props.errors.data && !props.errors.data.username &&
+                                !props.errors.data.email &&
+                                !props.errors.data.password
+                                    ? props.errors.data.confirmPassword && (
                                           <div className="error-message">
-                                              {props.errors.confirmPassword}
+                                              {props.errors.data.confirmPassword}
                                           </div>
                                       )
                                     : ''}
