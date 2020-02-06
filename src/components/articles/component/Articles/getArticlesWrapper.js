@@ -27,23 +27,34 @@ const GetArticlesWrapper = props => {
                             <div className="aside__login-button">
                                 <h3>
                                     {props.auth.isAuthenticated ? (
-                                        <button
-                                            className="btn btn-outline-primary my-2 my-sm-0"
-                                            type="submit"
-                                        >
-                                            <Link
-                                                to="/article"
-                                                className="authentication__register--link"
-                                            >
-                                                {' '}
-                                                <span className="small-font">
-                                                    Start Writing
-                                                </span>
-                                            </Link>
-                                        </button>
+                                        <div>
+                                            <div>
+                                                <button
+                                                    className="btn btn-outline-primary my-2 my-sm-0 create__article-button"
+                                                    type="submit"
+                                                >
+                                                    <Link
+                                                        to="/article"
+                                                        className="authentication__register--link"
+                                                    >
+                                                        {' '}
+                                                        <span className="small-font">
+                                                            Start Writing
+                                                        </span>
+                                                    </Link>
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <Link to="/article">
+                                                    <span>
+                                                        <i className="fa fa-pencil create-article-favicon" />
+                                                    </span>
+                                                </Link>
+                                            </div>
+                                        </div>
                                     ) : (
                                         <button
-                                            className="btn btn-outline-primary my-2 my-sm-0"
+                                            className="btn btn-outline-primary my-2 my-sm-0 create__article-button"
                                             type="submit"
                                         >
                                             <Link

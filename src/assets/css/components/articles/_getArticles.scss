@@ -103,10 +103,18 @@ h3{
   border-style: solid;
   border-color: #ccc1c0;
   max-height: 18vh;
+
+}
+.create-article-favicon{
+  color: $background;
+
 }
 
 
 @media only screen and (max-width: 1000px) {
+  .create__article-button{
+    display: none;
+  }
   //.wrapper__col{
   //  display: none;
   //}
@@ -129,13 +137,36 @@ h3{
     top: 2px;
     left: 150%;
   }
+  .create-article-favicon {
+    margin-top: 30%;
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
 
 }
-
+@media only screen and (max-width: 700px) {
+  .create__article-button{
+    display: none;
+  }
+  .create-article-favicon {
+    margin-top: 30%;
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}
 @media only screen and (max-width: 575px) {
   .aside__login-button{
     top: -10px;
     left: 80%;
+  }
+
+  .article-box__img{
+    max-height: 27vh;
+  }
+  .image-container{
+    max-height: 30vh;
   }
 
 }

@@ -10,3 +10,20 @@
 .article__input:focus{
   outline: none;
 }
+
+.createArticle{
+  min-height: 90vh;
+}
+
+@media only screen and (max-width: 700px) {
+  .createArticle {
+    min-height: 110vh;
+
+  }
+  #create__article-form{
+    margin-left: 10%;
+  }
+  .save__article{
+    margin-left: 15%;
+  }
+}

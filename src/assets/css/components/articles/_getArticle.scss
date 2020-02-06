@@ -44,13 +44,15 @@ body {
 
 .article-favicons {
     display: inline;
-    margin-left: 80%;
+    margin-left: 60%;
     margin-top: 5%;
+    //margin-right: 10%;
 }
 
 #article__title {
     display: inline;
     margin-top: 5%;
+    padding-left: 10%;
 }
 
 #article__title {
@@ -92,4 +94,15 @@ body {
 
 .dislike:hover {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    .article-favicons {
+        margin-left: 40%;
+    }
+
+    #article__title {
+        padding-left: 10%;
+    }
+
 }

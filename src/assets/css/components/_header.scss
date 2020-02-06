@@ -127,4 +127,98 @@
     color: white;
     background: white;
 }
+.newSideBar {
+    display: none;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .navbar {
+        display: none;
+    }
+
+    //Sidebar
+    .newSideBar {
+        position: absolute;
+        display: inline;
+        margin-top: -24px;
+    }
+
+    .sidebar {
+        z-index:111;
+        position: fixed;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background: $background;
+        transition: all 0.5s ease;
+    }
+    .sidebar header {
+        font-size: 22px;
+        color: black;
+        line-height: 70px;
+        text-align: center;
+        background: #343a40;
+        user-select: none;
+    }
+    .sidebar ul a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: $medium-font-size;
+        color: black;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-bottom: 1px solid black;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        transition: 0.4s;
+    }
+    ul li:hover a {
+        padding-left: 50px;
+    }
+    .sidebar ul a i {
+        margin-right: 16px;
+    }
+    #check {
+        display: none;
+    }
+    label #btn,
+    label #cancel {
+        position: absolute;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    label #btn {
+        z-index: 1111;
+        left: 30px;
+        top: 35px;
+        font-size: 25px;
+        color: $dark-grey;
+        padding: 6px 12px;
+        transition: all 0.5s;
+        cursor: pointer;
+    }
+
+    label #cancel {
+        z-index: 1111;
+        left: -195px;
+        top: 40px;
+        font-size: 25px;
+        color: $dark-grey;
+        padding: 4px 9px;
+        transition: all 0.5s ease;
+    }
+    #check:checked ~ .sidebar {
+        left: 0;
+    }
+    #check:checked ~ label #btn {
+        left: 250px;
+        opacity: 0;
+        pointer-events: none;
+    }
+    #check:checked ~ label #cancel {
+        left: 195px;
+    }
+}
 
