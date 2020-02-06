@@ -32,7 +32,7 @@
 }
 
 .registration__aside{
-  height: 115%;
+  height: 90vh;
 }
 
 
@@ -64,6 +64,10 @@
   .image__container{
     display: none;
   }
+  .registration__aside{
+    height: 100vh;
+  }
+
 }
 
 

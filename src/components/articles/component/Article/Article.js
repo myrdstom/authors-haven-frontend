@@ -6,7 +6,10 @@ const Article = props => {
     const { article, auth, onHandleLike, onDeleteClick, onHandleDislike, likedStatus, dislikedStatus } = props;
     return (
         <div className="container">
+            <br/>
+            <br/>
             <div className="row">
+
                 <span id="article__title" className="article__title">
                     {article.author}
                 </span>

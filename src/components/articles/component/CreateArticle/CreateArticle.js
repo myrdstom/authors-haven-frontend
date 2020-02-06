@@ -48,13 +48,13 @@ class CreateArticle extends Component {
             onHandleChange,
         } = this.props;
         return (
-            <div>
+            <div className="createArticle">
                 <div className="container">
                     <div className="row">
                         <form onSubmit={onSubmit}>
                             <br />
                             <br />
-                            <div className="form-group">
+                            <div className="form-group" id="create__article-form">
                                 <input
                                     type="text"
                                     className="form-control-lg article__input"
@@ -68,7 +68,7 @@ class CreateArticle extends Component {
                             </div>
                             <br />
                             <br />
-                            <div className="form-group">
+                            <div className="form-group" id="create__article-form">
                                 <ReactQuill
                                     theme="bubble"
                                     className="react-quill"
@@ -83,7 +83,7 @@ class CreateArticle extends Component {
                             <br />
                             <input
                                 type="submit"
-                                className="btn btn-outline-primary"
+                                className="btn btn-outline-primary save__article"
                                 value="Save"
                             />
                         </form>

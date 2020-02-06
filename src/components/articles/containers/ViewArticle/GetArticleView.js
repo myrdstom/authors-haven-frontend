@@ -17,7 +17,6 @@ import { getCurrentProfile } from '../../../../redux/actions/profile/profileActi
 
 import CreateCommentView from '../../../comments/container/CreateCommentView';
 import CommentItem from '../../../comments/component/CommentItem';
-import Footer from '../../../Footer';
 
 class GetArticleView extends Component {
     constructor() {

@@ -13,11 +13,15 @@ body{
 .articles__wrapper{
   margin-top: 20px;
   padding-left: 5%;
-  margin-right: 15%;
+  margin-left: 15%;
   padding-right: 10%;
   max-width: 80%;
 
 }
+
+//svg {
+//  padding-left: 20%;
+//}
 
 .wrapper__text-container{
   margin-top: 10%;
@@ -103,10 +107,18 @@ h3{
   border-style: solid;
   border-color: #ccc1c0;
   max-height: 18vh;
+
+}
+.create-article-favicon{
+  color: $background;
+
 }
 
 
 @media only screen and (max-width: 1000px) {
+  .create__article-button{
+    display: none;
+  }
   //.wrapper__col{
   //  display: none;
   //}
@@ -129,13 +141,36 @@ h3{
     top: 2px;
     left: 150%;
   }
+  .create-article-favicon {
+    margin-top: 30%;
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
 
 }
-
+@media only screen and (max-width: 760px) {
+  .create__article-button{
+    display: none;
+  }
+  .create-article-favicon {
+    margin-top: 30%;
+    color: $dark-grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}
 @media only screen and (max-width: 575px) {
   .aside__login-button{
     top: -10px;
     left: 80%;
+  }
+
+  .article-box__img{
+    max-height: 27vh;
+  }
+  .image-container{
+    max-height: 30vh;
   }
 
 }

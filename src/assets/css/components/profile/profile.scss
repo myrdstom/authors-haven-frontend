@@ -1,11 +1,13 @@
 .get__profile-container {
   padding-top: 5%;
   margin: 0 auto;
+  min-height: 90vh;
 
 }
 
 .create__profile-container{
   padding-top: 5%;
+  min-height: 90vh;
 }
 
 .avatar-upload {
@@ -140,7 +142,7 @@ ul {
   to   { opacity: 0.6; }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .avatar-upload  {
     margin-left: 30%;
     margin-bottom: 40px;
@@ -148,5 +150,14 @@ ul {
 
   .text__container{
     margin-top: 10%;
+  }
+
+  .get__profile-container {
+    min-height: 95vh;
+
+  }
+
+  .create__profile-container{
+    min-height: 105vh;
   }
 }
