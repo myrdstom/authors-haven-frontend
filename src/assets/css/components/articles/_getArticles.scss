@@ -13,11 +13,15 @@ body{
 .articles__wrapper{
   margin-top: 20px;
   padding-left: 5%;
-  margin-right: 15%;
+  margin-left: 15%;
   padding-right: 10%;
   max-width: 80%;
 
 }
+
+//svg {
+//  padding-left: 20%;
+//}
 
 .wrapper__text-container{
   margin-top: 10%;
@@ -145,7 +149,7 @@ h3{
   }
 
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 760px) {
   .create__article-button{
     display: none;
   }
