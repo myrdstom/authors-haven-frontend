@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter as Router } from 'react-router';
 import { toast } from 'react-toastify';
-import CreateProfile from '../../../../components/profile/component/CreateProfile';
-import Registration from '../../../../components/auth/component/Registration';
+import CreateProfile from '../../../../../components/profile/component/CreateProfile';
+import Registration from '../../../../../components/auth/component/Registration';
 
 describe('Test suite for the function Create or Edit a profile', () => {
     let wrapper;
