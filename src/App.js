@@ -15,7 +15,7 @@ import RegistrationView from './components/auth/container/RegistrationView';
 import EditArticleView from './components/articles/containers/EditArticle/EditArticleView';
 import NotFoundPage from './components/NotFoundPage';
 import checkForToken from './utils/getToken';
-import Footer from './components/Footer';
+
 
 // Check for token on every page
 checkForToken()
@@ -45,7 +45,6 @@ function App() {
                     <Route exact path="/article/:articleSlug/edit" component={EditArticleView} />
                     <Route component={NotFoundPage} />
                 </Switch>
-                <Footer/>
             </Router>
         </Provider>
     );

@@ -5,20 +5,18 @@ import GetProfile from '../component/GetProfile';
 import Loader from '../../Loader';
 import { getCurrentProfile } from '../../../redux/actions/profile/profileActions';
 import PropTypes from 'prop-types';
+import Footer from '../../Footer';
 
 class GetProfileView extends Component {
     componentWillMount() {
-        if(!this.props.auth.isAuthenticated){
+        if (!this.props.auth.isAuthenticated) {
             this.props.history.push('/');
-
         }
-
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(!this.props.auth.isAuthenticated){
+        if (!this.props.auth.isAuthenticated) {
             this.props.history.push('/');
-
         }
     }
 
@@ -26,17 +24,19 @@ class GetProfileView extends Component {
         const { user } = this.props.auth;
         const { profile, loading } = this.props.profile;
 
-
         return (
             <div>
                 {profile === null || loading === true ? (
                     <Loader />
                 ) : (
-                    <GetProfile
-                        profile={profile}
-                        loading={loading}
-                        user={user}
-                    />
+                    <div>
+                        <GetProfile
+                            profile={profile}
+                            loading={loading}
+                            user={user}
+                        />
+                        <Footer />
+                    </div>
                 )}
             </div>
         );

@@ -72,11 +72,6 @@ const GetArticlesWrapper = props => {
                             </svg>
 
                         </div>
-                        {/*<img*/}
-                        {/*    className="articles__wrapper"*/}
-                        {/*    src={getArticles}*/}
-                        {/*    alt=""*/}
-                        {/*/>*/}
                     </div>
                 </div>
                 <div className="col-lg-5 col-md-5 col-sm-6">
