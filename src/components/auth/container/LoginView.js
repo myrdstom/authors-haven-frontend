@@ -4,6 +4,7 @@ import Login from '../component/Login';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUser } from '../../../redux/actions/auth/auth';
+import Footer from '../../Footer';
 
 export class LoginView extends Component {
     constructor() {
@@ -28,10 +29,9 @@ export class LoginView extends Component {
         if (this.props.errors !== prevProps.errors) {
             this.setState({ errors: this.props.errors });
             setTimeout(() => {
-                this.setState({errors: 'false'});
-            }, 5000)
+                this.setState({ errors: 'false' });
+            }, 5000);
         }
-
     }
 
     handleChange = e => {
@@ -52,14 +52,17 @@ export class LoginView extends Component {
 
         const { user } = this.props.auth;
         return (
-            <Login
-                email={email}
-                password={password}
-                errors={errors}
-                onChange={this.handleChange}
-                onSubmit={this.handleSubmit}
-                user={user}
-            />
+            <div>
+                <Login
+                    email={email}
+                    password={password}
+                    errors={errors}
+                    onChange={this.handleChange}
+                    onSubmit={this.handleSubmit}
+                    user={user}
+                />
+                <Footer />
+            </div>
         );
     }
 }

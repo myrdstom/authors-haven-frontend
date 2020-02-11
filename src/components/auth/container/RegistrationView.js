@@ -5,6 +5,8 @@ import Registration from '../component/Registration';
 import { connect } from 'react-redux';
 import { registerUser } from '../../../redux/actions/auth/auth';
 
+import Footer from '../../Footer';
+
 export class RegistrationView extends Component {
     constructor() {
         super();
@@ -22,14 +24,13 @@ export class RegistrationView extends Component {
         }
     }
 
-
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const {errors} = this.props
+        const { errors } = this.props;
         if (errors !== prevProps.errors) {
             this.setState({ errors });
             setTimeout(() => {
-                this.setState({errors: 'false'});
-            }, 5000)
+                this.setState({ errors: 'false' });
+            }, 5000);
         }
     }
 
@@ -61,16 +62,19 @@ export class RegistrationView extends Component {
         const { user } = this.props.auth;
 
         return (
-            <Registration
-                username={username}
-                email={email}
-                password={password}
-                confirmPassword={confirmPassword}
-                errors={errors}
-                onChange={this.handleChange}
-                onSubmit={this.handleSubmit}
-                user={user}
-            />
+            <div>
+                <Registration
+                    username={username}
+                    email={email}
+                    password={password}
+                    confirmPassword={confirmPassword}
+                    errors={errors}
+                    onChange={this.handleChange}
+                    onSubmit={this.handleSubmit}
+                    user={user}
+                />
+                <Footer />
+            </div>
         );
     }
 }
