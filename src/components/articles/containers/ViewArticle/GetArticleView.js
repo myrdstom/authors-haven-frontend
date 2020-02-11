@@ -17,6 +17,8 @@ import { getCurrentProfile } from '../../../../redux/actions/profile/profileActi
 
 import CreateCommentView from '../../../comments/container/CreateCommentView';
 import CommentItem from '../../../comments/component/CommentItem';
+import Footer from '../../../Footer';
+
 
 class GetArticleView extends Component {
     constructor() {
@@ -115,6 +117,7 @@ class GetArticleView extends Component {
                     <NotFoundPage />
                 ) : (
                     <div>
+
                         <Article
                             article={article}
                             auth={auth}
@@ -135,11 +138,10 @@ class GetArticleView extends Component {
                                 ''
                             )}
                         </div>
-                        <hr className="comment__boundary"/>
+                        <hr className="comment__boundary" />
                         <div>
                             <div className="container">
                                 <div className="row">
-
                                     {article.comments ? (
                                         <div>
                                             {article.comments.map(comment => (
@@ -158,13 +160,14 @@ class GetArticleView extends Component {
                                     )}
                                 </div>
                             </div>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
                         </div>
                     </div>
                 )}
+                <Footer/>
             </div>
         );
     }

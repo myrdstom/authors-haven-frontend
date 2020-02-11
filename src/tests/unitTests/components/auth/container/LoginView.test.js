@@ -4,7 +4,7 @@ import { MemoryRouter as Router } from 'react-router';
 import {
     LoginView,
     mapStateToProps,
-} from '../../../../components/auth/container/LoginView';
+} from '../../../../../components/auth/container/LoginView';
 
 describe('Test suite for tetsing the Login class component',() => {
     const props = {

@@ -6,6 +6,8 @@ import CreateArticle from '../../component/CreateArticle/CreateArticle';
 import Loader from '../../../Loader';
 import { createArticle } from '../../../../redux/actions/articles/articlesAction';
 import { getCurrentProfile } from '../../../../redux/actions/profile/profileActions';
+import Footer from '../../../Footer';
+
 
 class CreateArticleView extends Component {
     constructor() {
@@ -75,8 +77,10 @@ class CreateArticleView extends Component {
                             onHandleChange={this.handleBodyChange}
                             onSubmit={this.handleSubmit}
                         />
+                        <Footer/>
                     </div>
                 )}
+
             </div>
         );
     }

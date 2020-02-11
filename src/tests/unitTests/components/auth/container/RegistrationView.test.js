@@ -4,7 +4,7 @@ import { MemoryRouter as Router } from 'react-router';
 import {
     RegistrationView,
     mapStateToProps,
-} from '../../../../components/auth/container/RegistrationView';
+} from '../../../../../components/auth/container/RegistrationView';
 
 describe('Test suite for testing the Registration class component', () => {
     const props = {

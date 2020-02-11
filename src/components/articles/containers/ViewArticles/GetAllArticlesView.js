@@ -7,6 +7,7 @@ import GetArticlesWrapper from '../../component/Articles/getArticlesWrapper';
 import GetArticle from './GetArticle';
 import { getAllArticles } from '../../../../redux/actions/articles/articlesAction';
 import { getCurrentProfile } from '../../../../redux/actions/profile/profileActions';
+import Footer from '../../../Footer';
 
 class GetAllArticlesView extends Component {
     render() {
@@ -16,19 +17,20 @@ class GetAllArticlesView extends Component {
 
         return (
             <div>
-
                 {
                     loading || this.props.profile.loading ?
                     <div>
                         <Loader/>
                     </div>:
                     <div>
+
                         <GetArticlesWrapper
                             auth={auth}
                         />
                         < GetArticle
                         articles={articles}
                         />
+                        <Footer/>
                     </div>
             }
             </div>

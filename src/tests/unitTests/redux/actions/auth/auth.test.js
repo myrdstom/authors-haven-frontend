@@ -1,12 +1,12 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { GET_ERRORS, SET_CURRENT_USER } from '../../../../redux/actions/types';
+import { GET_ERRORS, SET_CURRENT_USER } from '../../../../../redux/actions/types';
 import {
     registerUser,
     loginUser,
     setCurrentUser,
-} from '../../../../redux/actions/auth/auth';
+} from '../../../../../redux/actions/auth/auth';
 import users from '../../../__mocks__/users';
 
 const mockStore = configureMockStore([thunk]);

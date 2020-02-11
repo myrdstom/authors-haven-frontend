@@ -7,6 +7,8 @@ import Loader from '../../../Loader';
 import { getArticle } from '../../../../redux/actions/articles/articlesAction';
 import { editArticle } from '../../../../redux/actions/articles/articlesAction';
 import { getCurrentProfile } from '../../../../redux/actions/profile/profileActions';
+import Footer from '../../../Footer';
+
 
 
 class EditArticleView extends Component {
@@ -88,6 +90,7 @@ class EditArticleView extends Component {
                             onHandleChange={this.handleBodyChange}
                             onSubmit={this.handleSubmit}
                         />
+                        <Footer/>
                     </div>
                 )}
             </div>

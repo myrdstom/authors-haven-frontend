@@ -8,6 +8,7 @@ import {
     createProfile,
 } from '../../../redux/actions/profile/profileActions';
 import CreateProfile from '../component/CreateProfile';
+import Footer from '../../Footer';
 
 class CreateProfileView extends Component {
     constructor() {
@@ -59,7 +60,7 @@ class CreateProfileView extends Component {
     };
 
     mouseClick = () => {
-        const{history}=this.props;
+        const { history } = this.props;
         window.cloudinary.openUploadWidget(
             {
                 cloudName: 'dr8lvoqjj',
@@ -101,7 +102,7 @@ class CreateProfileView extends Component {
         };
         const { createProfile, history } = this.props;
 
-        createProfile(profileData, history)
+        createProfile(profileData, history);
     };
 
     render() {
@@ -114,17 +115,20 @@ class CreateProfileView extends Component {
                 {profile.profile === null || profile.loading === true ? (
                     <Loader />
                 ) : (
-                    <CreateProfile
-                        avatar={avatar}
-                        firstName={firstName}
-                        lastName={lastName}
-                        bio={bio}
-                        errors={errors}
-                        user={user}
-                        onMouseClick={this.mouseClick}
-                        onChange={this.handleChange}
-                        onSubmit={this.handleSubmit}
-                    />
+                    <div>
+                        <CreateProfile
+                            avatar={avatar}
+                            firstName={firstName}
+                            lastName={lastName}
+                            bio={bio}
+                            errors={errors}
+                            user={user}
+                            onMouseClick={this.mouseClick}
+                            onChange={this.handleChange}
+                            onSubmit={this.handleSubmit}
+                        />
+                        <Footer />
+                    </div>
                 )}
             </div>
         );

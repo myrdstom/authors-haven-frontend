@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter as Router } from 'react-router';
 import { toast } from 'react-toastify';
-import Registration from '../../../../components/auth/component/Registration';
+import Registration from '../../../../../components/auth/component/Registration';
 
 describe('Test suite for the function Register user component', () => {
     let wrapper;

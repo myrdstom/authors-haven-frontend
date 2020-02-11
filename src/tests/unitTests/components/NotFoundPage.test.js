@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount} from 'enzyme';
 import { MemoryRouter as Router } from 'react-router-dom';
-import NotFoundPage from '../../components/NotFoundPage';
+import NotFoundPage from '../../../components/NotFoundPage';
 
 
 const wrapper = mount(<Router><NotFoundPage /></Router>);
