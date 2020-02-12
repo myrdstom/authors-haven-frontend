@@ -5,6 +5,10 @@ body{
   max-width: 99%;
 }
 
+.article-container{
+  min-height: 45vh;
+}
+
 .wrapper__text{
   padding-left: 30%;
 }
@@ -19,9 +23,6 @@ body{
 
 }
 
-//svg {
-//  padding-left: 20%;
-//}
 
 .wrapper__text-container{
   margin-top: 10%;
@@ -119,15 +120,11 @@ h3{
   .create__article-button{
     display: none;
   }
-  //.wrapper__col{
-  //  display: none;
-  //}
+
   .labels__row{
     display: none;
   }
-  //.aside__login-button{
-  //  float: right;
-  //}
+
   .wrapper__text-container{
     margin-top: -10px;
   }
@@ -171,6 +168,10 @@ h3{
   }
   .image-container{
     max-height: 30vh;
+  }
+  .article-container{
+    margin-left: -2rem;
+    min-height: 90vh;
   }
 
 }
