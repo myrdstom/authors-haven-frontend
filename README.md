@@ -16,3 +16,7 @@ The app is hosted at [this](https://listicle-react.herokuapp.com/) url
 - Run `yarn start` or `npm start` depending on your installation
 
 - Test the functionality out in the browser that you have been redirected to.
+
+## Authentication Credentials
+- email: `nserekopaul@gmail.com`
+- password: `P@ssw0rd` 

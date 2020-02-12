@@ -132,7 +132,7 @@ const GetArticlesWrapper = props => {
                         </div>
                     </div>
                 </div>
-                <div className="labels__row"></div>
+                <div className="labels__row"/>
             </div>
         </div>
     );

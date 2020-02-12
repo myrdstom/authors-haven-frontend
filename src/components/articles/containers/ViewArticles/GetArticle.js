@@ -6,7 +6,7 @@ class GetArticle extends Component {
     render() {
         const {articles} = this.props;
         return  (
-            <div>
+            <div className="article-container">
                 <div className="row mx-5 my-5">
                     { articles.map(article => <ArticleItem key={article._id} article={article}/>)}
                 </div>

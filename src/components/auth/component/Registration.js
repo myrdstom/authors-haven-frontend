@@ -29,6 +29,7 @@ export default function Registration(props) {
                                     value={props.username}
                                     onChange={props.onChange}
                                     required
+                                    id="username"
                                 />
                                 {props.errors && props.errors.data && props.errors.data.username && (
 
@@ -46,6 +47,7 @@ export default function Registration(props) {
                                     name="email"
                                     value={props.email}
                                     onChange={props.onChange}
+                                    id="email"
                                 />
                                 {props.errors && props.errors.data && !props.errors.data.username
                                     ? props.errors.data.email && (
@@ -64,6 +66,7 @@ export default function Registration(props) {
                                     name="password"
                                     value={props.password}
                                     onChange={props.onChange}
+                                    id="password"
                                 />
                                 {props.errors && props.errors.data && !props.errors.data.username && !props.errors.data.email
                                     ? props.errors.data.password && (
@@ -84,6 +87,7 @@ export default function Registration(props) {
                                     name="confirmPassword"
                                     value={props.confirmPassword}
                                     onChange={props.onChange}
+                                    id="confirmPassword"
                                 />
                                 {props.errors && props.errors.data && !props.errors.data.username &&
                                 !props.errors.data.email &&

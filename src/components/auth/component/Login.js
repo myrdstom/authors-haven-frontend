@@ -17,7 +17,7 @@ export default function Login(props) {
                         <h1>Welcome back</h1>
                         <div className="auth__action">Sign In</div>
                         <br />
-                        <form noValidate onSubmit={props.onSubmit}>
+                        <form id="loginForm" noValidate onSubmit={props.onSubmit}>
                             <div className="form-group">
                                 <label htmlFor="email">Email address</label>
                                 <input
@@ -45,6 +45,7 @@ export default function Login(props) {
                                     placeholder="Password"
                                     value={props.password}
                                     onChange={props.onChange}
+                                    id="password"
                                     required
                                 />
                                 {!props.errors.email
