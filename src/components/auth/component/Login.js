@@ -7,7 +7,6 @@ const SectionStyle = styled.div`
     background-size: cover;
     height: 94.5vh;
 `;
-
 export default function Login(props) {
     return (
         <div>

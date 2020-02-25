@@ -76,16 +76,16 @@ body {
 
 // Like and dislike icons
 
-.likes{
+.likes {
     margin-left: 10%;
 }
 
 .likeBlue {
-    color:$blue;
+    color: $blue;
 }
 
 .dislikeBlue {
-    color:$blue;
+    color: $blue;
 }
 
 .like:hover {
@@ -96,6 +96,12 @@ body {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 850px) {
+    .view__article {
+        min-height: 70vh;
+    }
+}
+
 @media only screen and (max-width: 500px) {
     .article-favicons {
         margin-left: 40%;
@@ -104,5 +110,4 @@ body {
     #article__title {
         padding-left: 10%;
     }
-
 }

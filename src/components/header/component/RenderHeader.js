@@ -10,9 +10,9 @@ const RenderHeader = props => {
                 <input type="checkbox" id="check" />
                 <label htmlFor="check">
                     <span className="test">
-                        <i className="fa fa-bars" id="btn" />
+                        <i className="fa fa-list-ul" id="btn" />
                     </span>
-                    <i className="fa fa-times" id="cancel" />
+                    <i className="fa fa-ellipsis-v" id="cancel" />
                 </label>
 
                 <div className="sidebar">
@@ -22,11 +22,11 @@ const RenderHeader = props => {
                     {isAuthenticated && (
                         <ul>
                             <li>
-                                <Link to="/profile">Profile</Link>
+                                <Link to="/profile"><i className="fa fa-user-o" /> Profile</Link>
                             </li>
                             <li>
                                 <Link to="/" onClick={onLogoutClick}>
-                                    Logout
+                                    <i className="fa fa-sign-out" /> Logout
                                 </Link>
                             </li>
                         </ul>
@@ -34,10 +34,10 @@ const RenderHeader = props => {
                     {!isAuthenticated && (
                         <ul>
                             <li>
-                                <Link to="/login">Login</Link>
+                                <Link to="/login"><i className="fa fa-sign-in" /> Login</Link>
                             </li>
                             <li>
-                                <Link to="/register">Get Started</Link>
+                                <Link to="/register"><i className="fa fa-rocket" /> Get Started</Link>
                             </li>
                         </ul>
                     )}

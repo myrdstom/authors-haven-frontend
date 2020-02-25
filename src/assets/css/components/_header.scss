@@ -137,6 +137,14 @@
         display: none;
     }
 
+    .sidebar ul a {
+        text-decoration: none;
+    }
+
+    a:hover{
+        text-decoration: none;
+    }
+
     //Sidebar
     .newSideBar {
         position: absolute;
@@ -150,15 +158,15 @@
         left: -250px;
         width: 250px;
         height: 100%;
-        background: $background;
+        background: #333;
         transition: all 0.5s ease;
     }
     .sidebar header {
         font-size: 22px;
-        color: black;
+        color: #ffffff;
         line-height: 70px;
         text-align: center;
-        background: #343a40;
+        background: $blue;
         user-select: none;
     }
     .sidebar ul a {
@@ -167,7 +175,7 @@
         width: 100%;
         line-height: 65px;
         font-size: $medium-font-size;
-        color: black;
+        color: #ffffff;
         padding-left: 40px;
         box-sizing: border-box;
         border-bottom: 1px solid black;
