@@ -22,6 +22,7 @@ export class Header extends Component {
         e.preventDefault();
         this.props.clearCurrentProfile();
         this.props.logoutUser();
+        document.getElementById("cancel").click();
     };
     render() {
         const { isAuthenticated } = this.props.auth;

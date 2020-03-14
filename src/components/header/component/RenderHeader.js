@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 const RenderHeader = props => {
     const { isAuthenticated, profile, onLogoutClick } = props;
+    const onClick = () => {
+        document.getElementById("cancel").click();
+    }
 
     return (
         <div>
@@ -22,7 +25,7 @@ const RenderHeader = props => {
                     {isAuthenticated && (
                         <ul>
                             <li>
-                                <Link to="/profile"><i className="fa fa-user-o" /> Profile</Link>
+                                <Link to="/profile" onClick={onClick}><i className="fa fa-user-o" /> Profile</Link>
                             </li>
                             <li>
                                 <Link to="/" onClick={onLogoutClick}>
@@ -34,10 +37,10 @@ const RenderHeader = props => {
                     {!isAuthenticated && (
                         <ul>
                             <li>
-                                <Link to="/login"><i className="fa fa-sign-in" /> Login</Link>
+                                <Link to="/login" onClick={onClick}><i className="fa fa-sign-in" /> Login</Link>
                             </li>
                             <li>
-                                <Link to="/register"><i className="fa fa-rocket" /> Get Started</Link>
+                                <Link to="/register" onClick={onClick}><i className="fa fa-rocket" /> Get Started</Link>
                             </li>
                         </ul>
                     )}
