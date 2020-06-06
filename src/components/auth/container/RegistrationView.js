@@ -41,10 +41,10 @@ export class RegistrationView extends Component {
         e.preventDefault();
         const { username, email, password, confirmPassword } = this.state;
         const newUser = {
-            username: username,
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword,
+            username,
+            email,
+            password,
+            confirmPassword,
         };
         const { history } = this.props;
 
@@ -52,11 +52,7 @@ export class RegistrationView extends Component {
     };
     render() {
         const {
-            username,
-            email,
-            password,
-            confirmPassword,
-            errors,
+            ...otherSectionState
         } = this.state;
 
         const { user } = this.props.auth;
@@ -64,11 +60,7 @@ export class RegistrationView extends Component {
         return (
             <div>
                 <Registration
-                    username={username}
-                    email={email}
-                    password={password}
-                    confirmPassword={confirmPassword}
-                    errors={errors}
+                    {...otherSectionState }
                     onChange={this.handleChange}
                     onSubmit={this.handleSubmit}
                     user={user}

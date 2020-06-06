@@ -6,6 +6,10 @@
 
 - It can also be accessed on an [AWS](https://develop.d2u1psrnrbcesp.amplifyapp.com) amplify hosting service
 
+# Demo Video
+
+A brief [video](https://www.loom.com/share/9487cc3ce9e049cdba50c8cd21ed86d4) showing a user utilizing the application
+
 ## Authentication Test Credentials
 - email: `nserekopaul@gmail.com`
 - password: `P@ssw0rd` 
