@@ -35,13 +35,12 @@ class CreateCommentView extends Component {
     };
 
     render() {
-        const {body, errors} = this.state;
-        const {username} = this.props.auth.user
+        const { ...otherSectionState } = this.state;
+        const {username} = this.props.auth.user;
             return <div>
                 {
                     <CreateComment
-                        body={body}
-                        errors={errors}
+                        {...otherSectionState}
                         username={username}
                         onChange={this.handleChange}
                         onSubmit={this.handleSubmit}
@@ -63,10 +62,10 @@ CreateCommentView.propTypes = {
     profile: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = state => ({
-    auth: state.auth,
-    profile: state.profile,
-    errors: state.errors,
+export const mapStateToProps = ({auth, profile, errors}) => ({
+    auth,
+    profile,
+    errors,
 });
 
 export default connect(

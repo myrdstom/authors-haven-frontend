@@ -9,7 +9,7 @@ const SectionStyle = styled.div`
     height: 94.5vh;
 `;
 
-export default function Registration(props) {
+export default function Registration({onSubmit, onChange, email, username, password, errors, confirmPassword}) {
     return (
         <div className="parent-auth-container container-fluid">
             <div className="auth__grid">
@@ -18,7 +18,7 @@ export default function Registration(props) {
                         <h1>Get Started, its easy</h1>
                         <div className="auth__action">Sign Up</div>
                         <br />
-                        <form noValidate onSubmit={props.onSubmit}>
+                        <form noValidate onSubmit={onSubmit}>
                             <div className="form-group">
                                 <label htmlFor="username">Username</label>
                                 <input
@@ -26,15 +26,15 @@ export default function Registration(props) {
                                     className="form-control form-control-sm"
                                     placeholder="Username"
                                     name="username"
-                                    value={props.username}
-                                    onChange={props.onChange}
+                                    value={username}
+                                    onChange={onChange}
                                     required
                                     id="username"
                                 />
-                                {props.errors && props.errors.data && props.errors.data.username && (
+                                {errors && errors.data && errors.data.username && (
 
                                     <div className="error-message">
-                                        {props.errors.data.username}
+                                        {errors.data.username}
                                     </div>
                                 )}
                             </div>
@@ -45,14 +45,14 @@ export default function Registration(props) {
                                     className="form-control form-control-sm"
                                     placeholder="Email Address"
                                     name="email"
-                                    value={props.email}
-                                    onChange={props.onChange}
+                                    value={email}
+                                    onChange={onChange}
                                     id="email"
                                 />
-                                {props.errors && props.errors.data && !props.errors.data.username
-                                    ? props.errors.data.email && (
+                                {errors && errors.data && !errors.data.username
+                                    ? errors.data.email && (
                                           <div className="error-message">
-                                              {props.errors.data.email}
+                                              {errors.data.email}
                                           </div>
                                       )
                                     : ''}
@@ -64,14 +64,14 @@ export default function Registration(props) {
                                     className="form-control form-control-sm"
                                     placeholder="Password"
                                     name="password"
-                                    value={props.password}
-                                    onChange={props.onChange}
+                                    value={password}
+                                    onChange={onChange}
                                     id="password"
                                 />
-                                {props.errors && props.errors.data && !props.errors.data.username && !props.errors.data.email
-                                    ? props.errors.data.password && (
+                                {errors && errors.data && !errors.data.username && !errors.data.email
+                                    ? errors.data.password && (
                                           <div className="error-message">
-                                              {props.errors.data.password}
+                                              {errors.data.password}
                                           </div>
                                       )
                                     : ''}
@@ -85,16 +85,16 @@ export default function Registration(props) {
                                     className="form-control form-control-sm"
                                     placeholder="Confirm Password"
                                     name="confirmPassword"
-                                    value={props.confirmPassword}
-                                    onChange={props.onChange}
+                                    value={confirmPassword}
+                                    onChange={onChange}
                                     id="confirmPassword"
                                 />
-                                {props.errors && props.errors.data && !props.errors.data.username &&
-                                !props.errors.data.email &&
-                                !props.errors.data.password
-                                    ? props.errors.data.confirmPassword && (
+                                {errors && errors.data && !errors.data.username &&
+                                !errors.data.email &&
+                                !errors.data.password
+                                    ? errors.data.confirmPassword && (
                                           <div className="error-message">
-                                              {props.errors.data.confirmPassword}
+                                              {errors.data.confirmPassword}
                                           </div>
                                       )
                                     : ''}

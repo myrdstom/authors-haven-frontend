@@ -100,10 +100,10 @@ CreateArticleView.propTypes = {
     profile: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = state => ({
-    auth: state.auth,
-    profile: state.profile,
-    errors: state.errors,
+export const mapStateToProps = ({auth, profile, errors}) => ({
+    auth,
+    profile,
+    errors,
     history: PropTypes.shape({
         push: PropTypes.func,
     }).isRequired,

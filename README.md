@@ -1,10 +1,16 @@
-# listicle-react-frontend
+# Listicle
 [![Build Status](https://travis-ci.org/myrdstom/listicle-react.svg?branch=develop)](https://travis-ci.org/myrdstom/listicle-react)
+
+Listicle brings all bloggers and blogs under one roof. From technology to relationships, climate change to business, bloggers around the world can showcase their articles and reviews
 
 ## Hosting
 - The app is hosted on [heroku](https://listicle-react.herokuapp.com/)
 
 - It can also be accessed on an [AWS](https://develop.d2u1psrnrbcesp.amplifyapp.com) amplify hosting service
+
+# Demo Video
+
+A brief [video](https://www.loom.com/share/9487cc3ce9e049cdba50c8cd21ed86d4) showing a user utilizing the application
 
 ## Authentication Test Credentials
 - email: `nserekopaul@gmail.com`

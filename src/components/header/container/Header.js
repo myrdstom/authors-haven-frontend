@@ -47,9 +47,9 @@ Header.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-    auth: state.auth,
-    profile: state.profile,
+const mapStateToProps = ({auth, profile}) => ({
+    auth,
+    profile,
 });
 
 export default connect(

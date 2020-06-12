@@ -39,24 +39,23 @@ export class LoginView extends Component {
     };
     handleSubmit = e => {
         e.preventDefault();
+        const {email, password} = this.state;
         const userData = {
-            email: this.state.email,
-            password: this.state.password,
+            email,
+            password,
         };
         const { loginUser } = this.props;
         loginUser(userData);
     };
 
     render() {
-        const { email, password, errors } = this.state;
+        const { ...otherSectionState } = this.state;
 
         const { user } = this.props.auth;
         return (
             <div>
                 <Login
-                    email={email}
-                    password={password}
-                    errors={errors}
+                    {...otherSectionState}
                     onChange={this.handleChange}
                     onSubmit={this.handleSubmit}
                     user={user}
@@ -76,9 +75,9 @@ LoginView.propTypes = {
     errors: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors,
+export const mapStateToProps = ({auth, errors}) => ({
+    auth,
+    errors,
     history: PropTypes.shape({
         push: PropTypes.func,
     }).isRequired,

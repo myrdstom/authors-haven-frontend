@@ -6,9 +6,9 @@ const stockImage = 'https://s3.amazonaws.com/gv2016wp/wp-content/uploads/2015062
 
 
 
-const  RenderArticles =(props) => {
-    const {article} = props;
-    let articleImage = article.articleURL || stockImage;
+const  RenderArticles =({article}) => {
+    const {articleURL, title, author, articleSlug, likes, dislikes} = article;
+    let articleImage = articleURL || stockImage;
         return (
             <div>
                  <div className="col-md-4">
@@ -18,11 +18,11 @@ const  RenderArticles =(props) => {
                             <img className="article-box__img" src={articleImage} alt="The article"/>
                         </div>
                         <div className="text-dark">
-                            <div className="article__titles">{article.title} </div>
-                            <div className="article__authors">LIKES: {article.likes.length - article.dislikes.length} </div>
-                            <span className="article__authors">{article.author} </span>
+                            <div className="article__titles">{title} </div>
+                            <div className="article__authors">LIKES: {likes.length - dislikes.length} </div>
+                            <span className="article__authors">{author} </span>
                             <button className="view_article">
-                                <Link to={{pathname: `/article/${article.articleSlug}/`}}>More</Link>
+                                <Link to={{pathname: `/article/${articleSlug}/`}}>More</Link>
                             </button>
                         </div>
                     </div>

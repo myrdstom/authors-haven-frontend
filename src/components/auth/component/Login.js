@@ -7,7 +7,7 @@ const SectionStyle = styled.div`
     background-size: cover;
     height: 94.5vh;
 `;
-export default function Login(props) {
+export default function Login({onSubmit, email, password, errors, onChange}) {
     return (
         <div>
             <div className="auth__grid">
@@ -16,7 +16,7 @@ export default function Login(props) {
                         <h1>Welcome back</h1>
                         <div className="auth__action">Sign In</div>
                         <br />
-                        <form id="loginForm" noValidate onSubmit={props.onSubmit}>
+                        <form id="loginForm" noValidate onSubmit={onSubmit}>
                             <div className="form-group">
                                 <label htmlFor="email">Email address</label>
                                 <input
@@ -24,14 +24,14 @@ export default function Login(props) {
                                     className="form-control form-control-sm"
                                     name="email"
                                     placeholder="Enter email"
-                                    value={props.email}
-                                    onChange={props.onChange}
+                                    value={email}
+                                    onChange={onChange}
                                     id="email"
                                     required
                                 />
-                                {props.errors.email && (
+                                {errors.email && (
                                     <div className="error-message">
-                                        {props.errors.email}
+                                        {errors.email}
                                     </div>
                                 )}
                             </div>
@@ -42,15 +42,15 @@ export default function Login(props) {
                                     className="form-control form-control-sm"
                                     name="password"
                                     placeholder="Password"
-                                    value={props.password}
-                                    onChange={props.onChange}
+                                    value={password}
+                                    onChange={onChange}
                                     id="password"
                                     required
                                 />
-                                {!props.errors.email
-                                    ? props.errors.password && (
+                                {!errors.email
+                                    ? errors.password && (
                                           <div className="error-message">
-                                              {props.errors.password}
+                                              {errors.password}
                                           </div>
                                       )
                                     : ''}
