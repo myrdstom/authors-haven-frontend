@@ -1,8 +1,6 @@
 import React from 'react';
 
-function CreateComment(props) {
-    const { body, onChange, onSubmit, username } = props;
-
+function CreateComment({ body, onChange, onSubmit, username }) {
     return (
         <div className="create__comment-container">
             <br />

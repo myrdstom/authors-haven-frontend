@@ -35,13 +35,12 @@ class CreateCommentView extends Component {
     };
 
     render() {
-        const {body, errors} = this.state;
-        const {username} = this.props.auth.user
+        const { ...otherSectionState } = this.state;
+        const {username} = this.props.auth.user;
             return <div>
                 {
                     <CreateComment
-                        body={body}
-                        errors={errors}
+                        {...otherSectionState}
                         username={username}
                         onChange={this.handleChange}
                         onSubmit={this.handleSubmit}

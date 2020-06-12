@@ -92,13 +92,13 @@ class CreateProfileView extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        const { avatar, firstName, lastName, bio } = this.state;
 
         const profileData = {
-            avatar:
-                window.localStorage.getItem('newImage') || this.state.avatar,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            bio: this.state.bio,
+            avatar: window.localStorage.getItem('newImage') || avatar,
+            firstName,
+            lastName,
+            bio,
         };
         const { createProfile, history } = this.props;
 
@@ -106,7 +106,7 @@ class CreateProfileView extends Component {
     };
 
     render() {
-        const { firstName, lastName, bio, errors, avatar } = this.state;
+        const { ...otherSectionState } = this.state;
         const { user } = this.props.auth;
         const { profile } = this.props;
 
@@ -117,11 +117,7 @@ class CreateProfileView extends Component {
                 ) : (
                     <div>
                         <CreateProfile
-                            avatar={avatar}
-                            firstName={firstName}
-                            lastName={lastName}
-                            bio={bio}
-                            errors={errors}
+                            {...otherSectionState}
                             user={user}
                             onMouseClick={this.mouseClick}
                             onChange={this.handleChange}

@@ -39,24 +39,23 @@ export class LoginView extends Component {
     };
     handleSubmit = e => {
         e.preventDefault();
+        const {email, password} = this.state;
         const userData = {
-            email: this.state.email,
-            password: this.state.password,
+            email,
+            password,
         };
         const { loginUser } = this.props;
         loginUser(userData);
     };
 
     render() {
-        const { email, password, errors } = this.state;
+        const { ...otherSectionState } = this.state;
 
         const { user } = this.props.auth;
         return (
             <div>
                 <Login
-                    email={email}
-                    password={password}
-                    errors={errors}
+                    {...otherSectionState}
                     onChange={this.handleChange}
                     onSubmit={this.handleSubmit}
                     user={user}

@@ -161,9 +161,15 @@ h3{
   }
 }
 @media only screen and (max-width: 575px) {
-  .articles__container .col-sm-6{
-    margin-left: 40px;
+  .article-container{
+    margin-left: -2rem;
+    min-height: 90vh;
+
+    .col-sm-6{
+      margin-left: 40px;
+    }
   }
+
   .aside__login-button{
     top: -10px;
     left: 80%;
@@ -175,10 +181,7 @@ h3{
   .image-container{
     max-height: 30vh;
   }
-  .article-container{
-    margin-left: -2rem;
-    min-height: 90vh;
-  }
+
 
 }
 
