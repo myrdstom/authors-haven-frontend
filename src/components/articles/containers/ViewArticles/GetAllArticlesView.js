@@ -54,10 +54,10 @@ GetAllArticlesView.propTypes = {
 
 };
 
-export const mapStateToProps = state => ({
-    articles: state.articles,
-    profile: state.profile,
-    auth: state.auth
+export const mapStateToProps = ({articles, profile, auth}) => ({
+    articles,
+    profile,
+    auth
 });
 
 export default connect(

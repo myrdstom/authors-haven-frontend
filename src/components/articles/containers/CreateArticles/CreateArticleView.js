@@ -44,7 +44,8 @@ class CreateArticleView extends Component {
     };
 
     handleBodyChange = (content, delta, source, editor) => {
-        this.setState({ body: editor.getText() });
+        console.log(editor.getContents())
+        this.setState({ body: editor.getContents() });
     };
 
     handleSubmit = e => {
@@ -58,8 +59,15 @@ class CreateArticleView extends Component {
         createArticle(articleData, history);
     };
 
+    onChangeArticleContent = (value) =>{
+        const{body} = this.state;
+        this.setState({body: value})
+
+    }
+
     render() {
         const { title, description, body,errors } = this.state;
+        console.log(body,'the body');
         return (
             <div>
                 {this.props.auth.loading || this.props.profile.loading ? (
@@ -74,7 +82,7 @@ class CreateArticleView extends Component {
                             errors={errors}
                             description={description}
                             onChange={this.handleChange}
-                            onHandleChange={this.handleBodyChange}
+                            onHandleChange={this.onChangeArticleContent}
                             onSubmit={this.handleSubmit}
                         />
                         <Footer/>
@@ -100,10 +108,10 @@ CreateArticleView.propTypes = {
     profile: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = state => ({
-    auth: state.auth,
-    profile: state.profile,
-    errors: state.errors,
+export const mapStateToProps = ({auth, profile, errors}) => ({
+    auth,
+    profile,
+    errors,
     history: PropTypes.shape({
         push: PropTypes.func,
     }).isRequired,
