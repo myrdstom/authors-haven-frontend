@@ -189,11 +189,11 @@ GetArticleView.propTypes = {
     dislikeArticle: PropTypes.func,
     deleteArticle: PropTypes.func,
 };
-export const mapStateToProps = state => ({
-    article: state.articles.article,
-    profile: state.profile,
-    auth: state.auth,
-    loading: state.articles.loading,
+export const mapStateToProps = ({articles:{article, loading}, profile, auth}) => ({
+    article,
+    profile,
+    auth,
+    loading,
 });
 
 export default connect(

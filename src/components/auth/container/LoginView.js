@@ -75,9 +75,9 @@ LoginView.propTypes = {
     errors: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors,
+export const mapStateToProps = ({auth, errors}) => ({
+    auth,
+    errors,
     history: PropTypes.shape({
         push: PropTypes.func,
     }).isRequired,

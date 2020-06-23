@@ -1,8 +1,6 @@
 # Listicle
 [![Build Status](https://travis-ci.org/myrdstom/listicle-react.svg?branch=develop)](https://travis-ci.org/myrdstom/listicle-react)
 
-## Description
-
 Listicle brings all bloggers and blogs under one roof. From technology to relationships, climate change to business, bloggers around the world can showcase their articles and reviews
 
 ## Hosting

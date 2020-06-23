@@ -82,9 +82,9 @@ RegistrationView.propTypes = {
     errors: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors,
+export const mapStateToProps = ({auth, errors}) => ({
+    auth,
+    errors,
 });
 
 export default connect(
