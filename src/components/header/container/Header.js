@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {createStructuredSelector} from 'reselect';
 import { logoutUser } from '../../../redux/actions/auth/auth';
 import {
     clearCurrentProfile,
@@ -8,6 +9,7 @@ import {
 } from '../../../redux/actions/profile/profileActions';
 
 import RenderHeader from '../component/RenderHeader';
+import {selectCurrentProfile, selectCurrentUser} from '../../../redux/selectors/selectors';
 
 export class Header extends Component {
     componentDidMount() {
@@ -47,9 +49,9 @@ Header.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-    auth: state.auth,
-    profile: state.profile,
+const mapStateToProps = createStructuredSelector({
+        auth: selectCurrentUser,
+        profile: selectCurrentProfile,
 });
 
 export default connect(

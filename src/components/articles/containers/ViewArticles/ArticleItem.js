@@ -20,8 +20,8 @@ ArticleItem.propTypes = {
     article: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired
 };
-export const mapStateToProps = state => ({
-    auth: state.auth
+export const mapStateToProps = ({auth}) => ({
+    auth
 
 });
 
