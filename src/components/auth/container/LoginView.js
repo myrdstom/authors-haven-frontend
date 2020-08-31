@@ -75,6 +75,8 @@ LoginView.propTypes = {
     errors: PropTypes.object.isRequired,
 };
 
+/* Map redux store state to component props*/
+
 export const mapStateToProps = ({auth, errors}) => ({
     auth,
     errors,

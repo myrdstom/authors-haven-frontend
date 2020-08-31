@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactQuill from 'react-quill';
 
-const stockImage = 'https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20150624200319/150624-The_Current_state_of_blogging_1200x628-01.png';
+const stockImage =
+    'https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20150624200319/150624-The_Current_state_of_blogging_1200x628-01.png';
 
 const Article = props => {
     const {
@@ -39,17 +41,22 @@ const Article = props => {
                         <span className="article-favicons" />
                     )}
 
-                        <img
-                            className="article__box-img"
-                            src={articleImage}
-                            alt="The article"
-                        />
-
+                    <img
+                        className="article__box-img"
+                        src={articleImage}
+                        alt="The article"
+                    />
 
                     <div className="article__text">
                         <span className="article__title">{article.title}</span>
                         <br />
-                        <span className="article__body">{article.body}</span>
+                        <span className="article__body">
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: article.body,
+                                }}
+                            />
+                        </span>
                     </div>
                 </div>
                 <br />
